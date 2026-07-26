@@ -5,7 +5,7 @@ export const siteContent = {
     "meta": "AI 产品经理 · 电子科技大学 · 辅修交互新媒体艺术",
     "summary": "四段 AI 产品实习：在快手做内容治理与智能标注，在百度做医疗 AI 后台，在好未来从 0 到 1 建过 300 万家长在用的社区，在龙猫数据交付过 6 个多模态数据集。热衷 AI Coding，代表作品全部在线可访问。",
     "email": "yaowen_hu@foxmail.com",
-    "githubUrl": "https://github.com/yaowenhu-uestc",
+    "githubUrl": "https://github.com/yaowenhu-pm",
     "resumeUrl": "assets/resume.pdf",
     "photo": "assets/hero-photo.jpg"
   },
