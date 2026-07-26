@@ -1,14 +1,11 @@
 import { projects } from "../data.js";
 
 export function projectsSection() {
-  const cards = projects.map((project, index) => `
-    <a class="project-card" href="${project.url}" target="_blank" rel="noreferrer" data-edit-card="projects" data-edit-index="${index}">
-      <p class="project-type" data-edit="projects.${index}.type">${project.type}</p>
-      <div>
-        <h3 data-edit="projects.${index}.title">${project.title}</h3>
-        <p data-edit="projects.${index}.description">${project.description}</p>
-      </div>
-      <span class="project-arrow" aria-hidden="true">↗</span>
+  const rows = projects.map((project, index) => `
+    <a class="rowitem" href="${project.url}" target="_blank" rel="noreferrer" data-edit-card="projects" data-edit-index="${index}">
+      <h3 data-edit="projects.${index}.title">${project.title}</h3>
+      <span class="ext" aria-hidden="true">&#8599;</span>
+      <p data-edit="projects.${index}.description">${project.description}</p>
     </a>`).join("");
 
   return `
@@ -16,6 +13,6 @@ export function projectsSection() {
       <div class="section-heading">
         <h2 id="work-title">代表作品</h2>
       </div>
-      <div class="project-grid">${cards}</div>
+      <div class="project-list">${rows}</div>
     </section>`;
 }

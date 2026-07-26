@@ -1,85 +1,89 @@
 export const siteContent = {
   "hero": {
     "name": "胡耀文",
-    "summary": "创造一个原本不存在、后来被很多人使用的产品。",
-    "email": "yaowen.hu.uestc@gmail.com",
+    "greeting": "你好，我是胡耀文",
+    "meta": "AI 产品经理 · 电子科技大学 · 辅修交互新媒体艺术",
+    "summary": "四段 AI 产品实习：在快手做内容治理与智能标注，在百度做医疗 AI 后台，在好未来从 0 到 1 建过 300 万家长在用的社区，在龙猫数据交付过 6 个多模态数据集。热衷 AI Coding，代表作品全部在线可访问。",
+    "email": "yaowen_hu@foxmail.com",
     "githubUrl": "https://github.com/yaowenhu-uestc",
-    "githubButtonText": "访问 GitHub",
-    "experienceButtonText": "查看经历",
-    "photo": "assets/hero-beach.jpg"
-  },
-  "about": {
-    "title": "关于我",
-    "text": "胡耀文，电子科技大学行政管理专业本科生，辅修交互新媒体艺术，专注 AI 产品方向。从多模态数据服务到教育与医疗 AI，我参与过面向 300 万+ 家长用户的社区产品从 0 到 1 建设；比起优化一个已经存在的东西，我更喜欢创造一个原本不存在、后来被很多人使用的产品。"
+    "resumeUrl": "assets/resume.pdf",
+    "photo": "assets/hero-photo.jpg"
   },
   "experiences": [
   {
-    "date": "2026.02 — 至今",
-    "company": "百度健康业务部",
+    "date": "2026.06 — 至今",
+    "company": "快手 · 商业化事业部",
     "role": "AI 产品实习生",
-    "summary": "负责医院 AI 运营后台的产品规划与功能设计。",
+    "summary": "审核员逐句对照原文的风险标注链路太慢，我把它重构为「AI 预标注 + 人工校对 + 视频时间轴联动」，两份 PRD 通过评审进入研发，按当前标注量测算预计节降 5 个标注人力。",
     "points": [
-      "规划 AI 分导诊、智能候诊室、诊后管理与医生 Agent 等核心能力。",
-      "搭建医院、科室与 AI 服务的数据分析维度，支持运营决策。"
+      "负责 Stella 智能标注平台建设与对内宣讲：AI 预标注 → 置信度分流 → 人工校准 → 反哺训练的数据飞轮。"
     ]
   },
   {
-    "date": "2025.10 — 2026.02",
-    "company": "好未来平台产品部",
+    "date": "2026.03 — 2026.06",
+    "company": "百度 · 健康业务部",
     "role": "AI 产品实习生",
-    "summary": "参与学而思亲子 App 家长社区从 0 到 1 建设。",
+    "summary": "负责「医院通」AI 医院后台：AI 分导诊、AI 加号、智能候诊室等六大能力模块，服务 172 家合作医院。",
     "points": [
-      "完成 8 个大版本、10 个小版本迭代，覆盖推荐、搜索、审核与发帖等核心链路。",
-      "推动家长社区上线北京、上海，覆盖 300 万+ 家长用户；通过分阶段供给策略和 30 位种子家长解决冷启动。"
+      "主导 60w+ 存量病历回传档案中台的 MRD 设计，支撑 Q2 新增 30 万健康档案。"
     ]
   },
   {
-    "date": "2025.07 — 2025.10",
-    "company": "龙猫数据",
+    "date": "2025.11 — 2026.03",
+    "company": "好未来 · 平台产品部",
+    "role": "AI 产品实习生",
+    "summary": "学而思亲子 APP 家长社区从 0 到 1：完成 8 个大版本迭代，覆盖 300w+ 家长用户。",
+    "points": [
+      "用分阶段供给策略和 30 位种子家长解决社区冷启动。"
+    ]
+  },
+  {
+    "date": "2025.07 — 2025.11",
+    "company": "龙猫数据 · 大客户部",
     "role": "数据产品实习生",
-    "summary": "负责多模态数据集交付与标注运营，支持模型训练场景。",
-    "points": [
-      "完成 6 个项目从立项到验收的流程管理，保障按期交付。",
-      "优化标注流程并建设协作 SOP，提升交付效率与质量管理。"
-    ]
+    "summary": "面向腾讯混元大模型交付 6 个多模态数据集，100% 按时交付，单项目周期从 200 人日压缩到 170 人日。",
+    "points": []
   }
   ],
   "projects": [
   {
-    "title": "学而思亲子家长社区首页",
-    "type": "已上线",
-    "description": "面向 300 万+ 家长用户的社区首页，提供资料分享、讨论答疑等核心模块。",
+    "title": "半日闲 · 周末规划 Agent",
+    "description": "ReAct 双 Agent，从意图理解到自动预订的闭环。",
+    "url": "https://weekend-agent.netlify.app/"
+  },
+  {
+    "title": "学而思家长社区首页",
+    "description": "300 万家长在用的社区产品首页还原。",
     "url": "https://parent-community-home.netlify.app/"
   },
   {
     "title": "家长社区后台管理",
-    "type": "已上线",
-    "description": "集内容审核、运营配置与数据看板于一体的社区运营后台。",
+    "description": "内容审核、运营配置与数据看板一体的运营后台。",
     "url": "https://parent-community-management.netlify.app/"
   },
   {
     "title": "Python 小工具",
-    "type": "效率工具",
     "description": "个人日常效率工具集合。",
     "url": "https://python-tool.netlify.app/"
   },
   {
     "title": "ASSA 学会官网",
-    "type": "官网",
-    "description": "学生学术协会品牌官网，展示活动并支持成员招募。",
+    "description": "学生学术协会品牌官网。",
     "url": "https://assa-hyw.netlify.app/"
-  },
-  {
-    "title": "美团周末管家",
-    "type": "AI Agent",
-    "description": "整合本地生活服务，为用户智能规划周末行程。",
-    "url": "https://weekend-agent.netlify.app/"
   }
   ],
+  "education": {
+    "school": "电子科技大学",
+    "degree": "行政管理 · 本科，辅修交互新媒体艺术 · 2023.09 — 2027.07",
+    "detail": "GPA 3.73/4.0（专业前 25%）· 国创赛省级金奖 · 职业规划大赛省级银奖"
+  },
+  "footer": {
+    "slogan": "Bet on something, do it."
+  },
   "style": {
-    "accentColor": "#1769e0",
-    "cardRadius": 28,
-    "sectionSpace": 56
+    "accentColor": "#0c0d10",
+    "cardRadius": 14,
+    "sectionSpace": 64
   }
 };
 

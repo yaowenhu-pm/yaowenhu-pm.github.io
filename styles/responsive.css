@@ -1,13 +1,9 @@
-@media (max-width: 760px) {
-  .shell { width: min(100% - 32px, 560px); }
-  .nav { min-height: 64px; }
+@media (max-width: 620px) {
   .nav-links { display: none; }
-  .hero { min-height: auto; grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
-  .hero-photo { max-width: 440px; }
-  .section { padding: 40px 0; }
-  .section-heading { margin-bottom: 24px; }
-  .experience-card { grid-template-columns: 1fr; gap: var(--space-md); padding: 24px 0; }
-  .project-grid { grid-template-columns: 1fr; }
-  .project-card { min-height: 216px; padding: var(--space-lg); }
-  .footer { align-items: start; flex-direction: column; }
+  .hero { flex-direction: column-reverse; gap: 24px; padding-top: 36px; }
+  .hero-photo { width: 132px; }
+  .section { padding-top: 48px; }
+  .rowitem { flex-wrap: wrap; }
+  .rowitem p { margin-left: 34px; width: 100%; text-align: left; }
+  .footer-row { flex-direction: column; align-items: flex-start; }
 }

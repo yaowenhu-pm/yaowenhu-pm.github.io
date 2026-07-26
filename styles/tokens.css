@@ -1,19 +1,30 @@
 :root {
-  --ios-blue: var(--editor-accent, #1769e0);
-  --bg: #fbfbf9;
-  --panel: #ffffff;
-  --panel-soft: #f4f4f2;
-  --text: #171717;
-  --text-secondary: #6b6b6b;
-  --text-tertiary: #8b8b8b;
-  --hairline: #e5e5e5;
-  --radius-xl: var(--editor-card-radius, 28px);
-  --radius-lg: 22px;
-  --radius-md: 16px;
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  --accent: var(--editor-accent, #0c0d10);
+  --bg: #fafbfc;
+  --text: #0c0d10;
+  --muted: #5e5f66;
+  --light: #8a8b90;
+  --fill: rgba(12, 13, 16, 0.04);
+  --fill-strong: rgba(12, 13, 16, 0.08);
+  --hairline: rgba(12, 13, 16, 0.08);
+  --invert-bg: #0c0d10;
+  --invert-text: #fafbfc;
+  --radius: var(--editor-card-radius, 14px);
+  --max: 760px;
+  --font: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d10;
+    --text: #f2f2f3;
+    --muted: #9a9a9e;
+    --light: #737377;
+    --fill: rgba(255, 255, 255, 0.06);
+    --fill-strong: rgba(255, 255, 255, 0.12);
+    --hairline: rgba(255, 255, 255, 0.12);
+    --invert-bg: #f2f2f3;
+    --invert-text: #0c0d10;
+  }
 }
