@@ -10,7 +10,8 @@ export function hero() {
         <p class="hero-summary" data-edit="hero.summary">${content.summary}</p>
         <div class="hero-actions">
           <a class="pill pill--dark" href="mailto:${content.email}">发送邮件</a>
-          <a class="pill pill--light" href="${content.resumeUrl}" target="_blank" rel="noreferrer">简历 PDF</a>
+          <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="${content.wechat}">复制微信号</button>
+          <a class="pill pill--light" href="${content.resumeUrl}" target="_blank" rel="noreferrer">简历</a>
           <a class="pill pill--light" href="${content.githubUrl}" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
@@ -18,4 +19,25 @@ export function hero() {
         <img src="${content.photo}" alt="${content.name}的照片" data-edit-photo />
       </figure>
     </section>`;
+}
+
+export function initWechatCopy() {
+  const button = document.querySelector("#copy-wechat");
+  if (!button) return;
+  button.addEventListener("click", () => {
+    const showCopied = () => {
+      const original = button.textContent;
+      button.textContent = "已复制";
+      setTimeout(() => { button.textContent = original; }, 1600);
+    };
+    navigator.clipboard.writeText(button.dataset.wechat).then(showCopied).catch(() => {
+      const helper = document.createElement("textarea");
+      helper.value = button.dataset.wechat;
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand("copy");
+      helper.remove();
+      showCopied();
+    });
+  });
 }

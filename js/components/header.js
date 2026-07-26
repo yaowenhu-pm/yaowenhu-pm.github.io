@@ -9,7 +9,7 @@ export function header() {
         <div class="nav-links">
           <a href="#experience">经历</a>
           <a href="#work">作品</a>
-          <a href="assets/resume.pdf" target="_blank" rel="noreferrer">简历 PDF</a>
+          <a href="assets/resume.pdf" target="_blank" rel="noreferrer">简历</a>
         </div>
         <div class="nav-tools">
           <a class="github-link" href="${githubUrl}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">&#8599;</span></a>
