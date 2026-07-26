@@ -2,7 +2,7 @@ export const siteContent = {
   "hero": {
     "name": "胡耀文",
     "greeting": "你好，我是胡耀文",
-    "meta": "AI 产品经理 · 电子科技大学 · 辅修交互新媒体艺术",
+    "meta": "AI 产品经理 · 电子科技大学",
     "summary": "四段 AI 产品实习：在快手做内容治理与智能标注，在百度做医疗 AI 后台，在好未来从 0 到 1 建过 300 万家长在用的社区，在龙猫数据交付过 6 个多模态数据集。热衷 AI Coding，代表作品全部在线可访问。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
@@ -77,7 +77,7 @@ export const siteContent = {
   ],
   "education": {
     "school": "电子科技大学",
-    "degree": "行政管理 · 本科，辅修交互新媒体艺术 · 2023.09 — 2027.07"
+    "degree": "行政管理 · 本科 · 2023.09 — 2027.07"
   },
   "footer": {
     "slogan": "Bet on something, do it."
