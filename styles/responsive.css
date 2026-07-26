@@ -3,7 +3,9 @@
   .hero { flex-direction: column-reverse; gap: 24px; padding-top: 36px; }
   .hero-photo { width: 132px; }
   .section { padding-top: 48px; }
+  .experience-item h3 { display: flex; flex-direction: column; gap: 2px; }
+  .experience-role { margin-left: 0; }
   .rowitem { flex-wrap: wrap; }
-  .rowitem p { margin-left: 34px; width: 100%; text-align: left; }
-  .footer-row { flex-direction: column; align-items: flex-start; }
+  .rowitem p { margin-left: 0; width: 100%; text-align: left; }
+  .footer-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
