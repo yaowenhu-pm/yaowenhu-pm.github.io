@@ -1,4 +1,5 @@
 import { githubUrl } from "../data.js";
+import { themeToggle } from "./theme.js";
 
 export function header() {
   return `
@@ -10,7 +11,10 @@ export function header() {
           <a href="#work">作品</a>
           <a href="assets/resume.pdf" target="_blank" rel="noreferrer">简历 PDF</a>
         </div>
-        <a class="github-link" href="${githubUrl}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">&#8599;</span></a>
+        <div class="nav-tools">
+          <a class="github-link" href="${githubUrl}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">&#8599;</span></a>
+          ${themeToggle()}
+        </div>
       </nav>
     </header>`;
 }

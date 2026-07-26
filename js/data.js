@@ -47,29 +47,14 @@ export const siteContent = {
   ],
   "projects": [
   {
-    "title": "半日闲 · 周末规划 Agent",
-    "description": "ReAct 双 Agent，从意图理解到自动预订的闭环。",
-    "url": "https://weekend-agent.netlify.app/"
+    "title": "AI Product Playbook",
+    "description": "AI 产品经理的实践手册：产品判断、Prompt、Skill、Agent 和 AI 工作流沉淀。",
+    "url": "https://github.com/yaowenhu-pm/ai-product-playbook"
   },
   {
-    "title": "学而思家长社区首页",
-    "description": "300 万家长在用的社区产品首页还原。",
-    "url": "https://parent-community-home.netlify.app/"
-  },
-  {
-    "title": "家长社区后台管理",
-    "description": "内容审核、运营配置与数据看板一体的运营后台。",
-    "url": "https://parent-community-management.netlify.app/"
-  },
-  {
-    "title": "Python 小工具",
-    "description": "个人日常效率工具集合。",
-    "url": "https://python-tool.netlify.app/"
-  },
-  {
-    "title": "ASSA 学会官网",
-    "description": "学生学术协会品牌官网。",
-    "url": "https://assa-hyw.netlify.app/"
+    "title": "Agent Skills 合集",
+    "description": "个人 Agent Skills 集合，Claude Code 即装即用。",
+    "url": "https://github.com/yaowenhu-pm/yaowenhu-skills"
   }
   ],
   "education": {

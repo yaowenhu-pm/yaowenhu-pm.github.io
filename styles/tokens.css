@@ -12,11 +12,24 @@
   --radius: var(--editor-card-radius, 14px);
   --max: 760px;
   --font: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c0d10;
+  --text: #f2f2f3;
+  --muted: #9a9a9e;
+  --light: #737377;
+  --fill: rgba(255, 255, 255, 0.06);
+  --fill-strong: rgba(255, 255, 255, 0.12);
+  --hairline: rgba(255, 255, 255, 0.12);
+  --invert-bg: #f2f2f3;
+  --invert-text: #0c0d10;
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0c0d10;
     --text: #f2f2f3;
     --muted: #9a9a9e;
@@ -26,5 +39,6 @@
     --hairline: rgba(255, 255, 255, 0.12);
     --invert-bg: #f2f2f3;
     --invert-text: #0c0d10;
+    color-scheme: dark;
   }
 }

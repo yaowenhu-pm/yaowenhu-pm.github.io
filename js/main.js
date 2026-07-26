@@ -5,6 +5,7 @@ import { header } from "./components/header.js";
 import { hero } from "./components/hero.js";
 import { projectsSection } from "./components/projects.js";
 import { loadVisitStats } from "./components/stats.js";
+import { initTheme } from "./components/theme.js";
 import { siteContent } from "./data.js";
 
 let statsLoaded = false;
@@ -14,6 +15,7 @@ export function renderPage() {
   document.documentElement.style.setProperty("--editor-card-radius", `${siteContent.style.cardRadius}px`);
   document.documentElement.style.setProperty("--editor-section-space", `${siteContent.style.sectionSpace}px`);
   document.querySelector("#app").innerHTML = `${header()}<main>${hero()}${experience()}${projectsSection()}${education()}</main>${footer()}`;
+  initTheme();
   if (!statsLoaded) {
     statsLoaded = true;
     loadVisitStats();
