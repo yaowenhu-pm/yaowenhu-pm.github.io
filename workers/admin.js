@@ -2,7 +2,7 @@ import { beginLogin, completeLogin } from "./admin-auth.js";
 import { readSiteContent, uploadAsset, writeSiteContent } from "./admin-repository.js";
 import { sessionRequest } from "./admin-session.js";
 
-const allowedOrigin = "https://yaowenhu-uestc.github.io";
+const allowedOrigin = "https://yaowenhu-pm.github.io";
 
 function corsHeaders() {
   return { "Access-Control-Allow-Origin": allowedOrigin, "Access-Control-Allow-Headers": "Authorization, Content-Type", "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS", Vary: "Origin" };

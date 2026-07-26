@@ -1,4 +1,4 @@
-const repository = "yaowenhu-uestc/yaowenhu-uestc.github.io";
+const repository = "yaowenhu-pm/yaowenhu-pm.github.io";
 
 export const editableFiles = [
   "js/data.js"

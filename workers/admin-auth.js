@@ -1,6 +1,6 @@
 import { randomId, sessionRequest } from "./admin-session.js";
 
-const allowedLogin = "yaowenhu-uestc";
+const allowedLogin = "yaowenhu-pm";
 const repositoryId = "1298378322";
 
 function callbackUrl(request) {
@@ -13,7 +13,7 @@ function configured(env) {
 
 function validReturnTo(value) {
   try {
-    return new URL(value).origin === "https://yaowenhu-uestc.github.io";
+    return new URL(value).origin === "https://yaowenhu-pm.github.io";
   } catch {
     return false;
   }

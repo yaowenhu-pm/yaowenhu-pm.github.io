@@ -1,7 +1,7 @@
 import { handleEditorRequest } from "./admin.js";
 export { AdminSession } from "./admin-session.js";
 
-const allowedOrigin = "https://yaowenhu-uestc.github.io";
+const allowedOrigin = "https://yaowenhu-pm.github.io";
 
 function shanghaiDate() {
   const parts = new Intl.DateTimeFormat("en-CA", {

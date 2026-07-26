@@ -59,9 +59,8 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 }
 .rowitem:hover .ext { color: var(--text); background: var(--fill-strong); }
 
-.elsewhere-qr { width: 72px; height: 72px; margin-left: auto; border-radius: 8px; background: #ffffff; }
+.elsewhere-qr { width: 72px; height: 72px; border-radius: 8px; background: #ffffff; flex-shrink: 0; }
 .rowitem:has(.elsewhere-qr) { align-items: center; }
-.rowitem:has(.elsewhere-qr) p { margin-left: 12px; text-align: left; }
 
 .education-content p { color: var(--muted); font-size: 15px; }
 .education-school { color: var(--text); font-weight: 600; }
