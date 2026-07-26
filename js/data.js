@@ -2,7 +2,6 @@ export const siteContent = {
   "hero": {
     "name": "胡耀文",
     "greeting": "你好，我是胡耀文",
-    "meta": "AI 产品经理 · 电子科技大学",
     "summary": "四段 AI 产品实习：在快手做内容治理与智能标注，在百度做医疗 AI 后台，在好未来从 0 到 1 建过 300 万家长在用的社区，在龙猫数据交付过 6 个多模态数据集。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
