@@ -9,10 +9,10 @@ export function hero() {
         <p class="hero-meta" data-edit="hero.meta">${content.meta}</p>
         <p class="hero-summary" data-edit="hero.summary">${content.summary}</p>
         <div class="hero-actions">
-          <a class="pill pill--dark" href="mailto:${content.email}">发送邮件</a>
-          <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="${content.wechat}">复制微信号</button>
           <a class="pill pill--light" href="${content.resumeUrl}" target="_blank" rel="noreferrer">简历</a>
           <a class="pill pill--light" href="${content.githubUrl}" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill pill--light" href="mailto:${content.email}">发送邮件</a>
+          <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="${content.wechat}">复制微信号</button>
         </div>
       </div>
       <figure class="hero-photo">

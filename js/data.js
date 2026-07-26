@@ -60,8 +60,8 @@ export const siteContent = {
   ],
   "elsewhere": [
   {
-    "title": "微信公众号",
-    "description": "长文与 AI 实践记录，扫码关注。",
+    "title": "公众号",
+    "description": "长文与 AI 实践记录。",
     "qr": "assets/wechat-qr.jpg"
   },
   {
