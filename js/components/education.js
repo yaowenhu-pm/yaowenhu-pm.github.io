@@ -10,7 +10,6 @@ export function education() {
       <div class="education-content">
         <p><span class="education-school" data-edit="education.school">${content.school}</span></p>
         <p data-edit="education.degree">${content.degree}</p>
-        <p data-edit="education.detail">${content.detail}</p>
       </div>
     </section>`;
 }

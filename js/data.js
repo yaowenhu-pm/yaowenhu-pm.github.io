@@ -21,7 +21,7 @@ export const siteContent = {
     ]
   },
   {
-    "date": "2026.03 — 2026.06",
+    "date": "2026.03 — 2026.05",
     "company": "百度 · 健康业务部",
     "role": "AI 产品实习生",
     "summary": "负责「医院通」AI 医院后台：AI 分导诊、AI 加号、智能候诊室等六大能力模块，服务 172 家合作医院。",
@@ -77,8 +77,7 @@ export const siteContent = {
   ],
   "education": {
     "school": "电子科技大学",
-    "degree": "行政管理 · 本科，辅修交互新媒体艺术 · 2023.09 — 2027.07",
-    "detail": "GPA 3.73/4.0 · 国创赛省级金奖 · 职业规划大赛省级银奖"
+    "degree": "行政管理 · 本科，辅修交互新媒体艺术 · 2023.09 — 2027.07"
   },
   "footer": {
     "slogan": "Bet on something, do it."
