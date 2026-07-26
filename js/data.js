@@ -58,6 +58,23 @@ export const siteContent = {
     "url": "https://github.com/yaowenhu-pm/yaowenhu-skills"
   }
   ],
+  "elsewhere": [
+  {
+    "title": "微信公众号",
+    "description": "长文与 AI 实践记录，扫码关注。",
+    "qr": "assets/wechat-qr.jpg"
+  },
+  {
+    "title": "小红书",
+    "description": "AI 与产品内容分享。",
+    "url": "https://www.xiaohongshu.com/user/profile/688f37480000000028027ee6"
+  },
+  {
+    "title": "即刻",
+    "description": "日常想法与动态。",
+    "url": "https://okjk.co/NsEfZL"
+  }
+  ],
   "education": {
     "school": "电子科技大学",
     "degree": "行政管理 · 本科，辅修交互新媒体艺术 · 2023.09 — 2027.07",
