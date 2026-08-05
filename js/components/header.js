@@ -1,4 +1,3 @@
-import { githubUrl } from "../data.js";
 import { themeToggle } from "./theme.js";
 
 export function header() {
@@ -11,7 +10,6 @@ export function header() {
           <a href="#work">作品</a>
         </div>
         <div class="nav-tools">
-          <a class="github-link" href="${githubUrl}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">&#8599;</span></a>
           ${themeToggle()}
         </div>
       </nav>

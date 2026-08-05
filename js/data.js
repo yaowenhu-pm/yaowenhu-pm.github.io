@@ -6,7 +6,6 @@ export const siteContent = {
     "belief": "相信产品的价值最终由多少人真的在用来决定。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
-    "githubUrl": "https://github.com/yaowenhu-pm",
     "photo": "assets/hero-photo.jpg"
   },
   "experiences": [
@@ -60,6 +59,11 @@ export const siteContent = {
   ],
   "elsewhere": [
   {
+    "title": "GitHub",
+    "description": "开源项目与代码。",
+    "url": "https://github.com/yaowenhu-pm"
+  },
+  {
     "title": "公众号",
     "description": "长文与 AI 实践记录。",
     "qr": "assets/wechat-qr.jpg"
@@ -89,7 +93,6 @@ export const siteContent = {
   }
 };
 
-export const githubUrl = siteContent.hero.githubUrl;
 export const email = siteContent.hero.email;
 export const experiences = siteContent.experiences;
 export const projects = siteContent.projects;

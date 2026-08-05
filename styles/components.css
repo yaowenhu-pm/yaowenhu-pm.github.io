@@ -1,9 +1,7 @@
 .brand { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
 .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
-.nav-links a:hover, .footer a:hover { color: var(--text); }
+.nav-links a:hover { color: var(--text); }
 .nav-tools { display: flex; align-items: center; gap: 14px; }
-.github-link { color: var(--muted); font-size: 14px; font-weight: 500; }
-.github-link:hover { color: var(--text); }
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; padding: 0; border: none; border-radius: 50%;
@@ -35,7 +33,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .pill--light { background: var(--fill); color: var(--text); }
 .pill--light:hover { background: var(--fill-strong); color: var(--text); }
 
-.hero-photo { position: relative; width: clamp(150px, 22vw, 200px); aspect-ratio: 1; margin: 8px 0 0; flex-shrink: 0; overflow: hidden; border-radius: 50%; background: var(--fill); }
+.hero-photo { position: relative; width: clamp(180px, 26vw, 230px); aspect-ratio: 1; margin: 8px 0 0; flex-shrink: 0; overflow: hidden; border-radius: 50%; background: var(--fill); }
 .hero-photo img { position: absolute; left: -13.3%; top: -20.5%; width: 121%; height: 121%; max-width: none; object-fit: cover; }
 
 .experience-item { padding: 22px 0; border-bottom: 1px solid var(--hairline); }

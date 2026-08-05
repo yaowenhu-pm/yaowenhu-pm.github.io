@@ -9,7 +9,6 @@ export function hero() {
         <p class="hero-summary" data-edit="hero.summary">${content.summary}</p>
         <p class="hero-summary" data-edit="hero.belief">${content.belief}</p>
         <div class="hero-actions">
-          <a class="pill pill--light" href="${content.githubUrl}" target="_blank" rel="noreferrer">GitHub</a>
           <a class="pill pill--light" href="mailto:${content.email}">发送邮件</a>
           <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="${content.wechat}">复制微信号</button>
         </div>
