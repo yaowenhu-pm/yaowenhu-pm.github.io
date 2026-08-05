@@ -35,7 +35,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .pill--light:hover { background: var(--fill-strong); color: var(--text); }
 
 .hero-photo { position: relative; width: clamp(150px, 22vw, 200px); aspect-ratio: 1; margin: 8px 0 0; flex-shrink: 0; overflow: hidden; border-radius: 50%; background: var(--fill); }
-.hero-photo img { position: absolute; left: -18%; top: -26%; width: 130%; height: 130%; max-width: none; object-fit: cover; }
+.hero-photo img { position: absolute; left: -7.5%; top: -14%; width: 110%; height: 110%; max-width: none; object-fit: cover; }
 
 .experience-item { padding: 22px 0; border-bottom: 1px solid var(--hairline); }
 .experience-item:last-child { border-bottom: none; }
