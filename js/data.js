@@ -2,7 +2,8 @@ export const siteContent = {
   "hero": {
     "name": "胡耀文",
     "greeting": "你好，我是胡耀文",
-    "summary": "AI PM，做面向用户的产品。相信产品的价值最终由多少人真的在用来决定。",
+    "summary": "AI PM，做面向用户的产品。",
+    "belief": "相信产品的价值最终由多少人真的在用来决定。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
     "githubUrl": "https://github.com/yaowenhu-pm",

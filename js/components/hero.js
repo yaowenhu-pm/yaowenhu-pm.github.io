@@ -7,6 +7,7 @@ export function hero() {
       <div class="hero-copy">
         <h1 id="hero-title" data-edit="hero.greeting">${content.greeting}</h1>
         <p class="hero-summary" data-edit="hero.summary">${content.summary}</p>
+        <p class="hero-summary" data-edit="hero.belief">${content.belief}</p>
         <div class="hero-actions">
           <a class="pill pill--light" href="${content.githubUrl}" target="_blank" rel="noreferrer">GitHub</a>
           <a class="pill pill--light" href="mailto:${content.email}">发送邮件</a>
