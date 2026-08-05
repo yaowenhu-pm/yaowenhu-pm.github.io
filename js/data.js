@@ -2,7 +2,7 @@ export const siteContent = {
   "hero": {
     "name": "胡耀文",
     "greeting": "你好，我是胡耀文",
-    "summary": "五段 AI 产品实习：在 infiDive 做 AI 角色养成的成长与经济数值体系，在快手做内容治理与智能标注，在百度做医疗 AI 后台，在好未来从 0 到 1 建家长社区，在龙猫数据交付多模态数据集。",
+    "summary": "AI PM，做面向用户的产品。相信产品的价值最终由多少人真的在用来决定。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
     "githubUrl": "https://github.com/yaowenhu-pm",
