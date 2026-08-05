@@ -63,4 +63,3 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 
 .footer-slogan { color: var(--text); font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--light); font-size: 13px; }
-.visit-stats { display: flex; gap: 14px; color: var(--light); font-size: 13px; }

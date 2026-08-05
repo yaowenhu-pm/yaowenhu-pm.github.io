@@ -5,11 +5,8 @@ import { footer } from "./components/footer.js";
 import { header } from "./components/header.js";
 import { hero, initWechatCopy } from "./components/hero.js";
 import { projectsSection } from "./components/projects.js";
-import { loadVisitStats } from "./components/stats.js";
 import { initTheme } from "./components/theme.js";
 import { siteContent } from "./data.js";
-
-let statsLoaded = false;
 
 export function renderPage() {
   document.documentElement.style.setProperty("--editor-accent", siteContent.style.accentColor);
@@ -18,10 +15,6 @@ export function renderPage() {
   document.querySelector("#app").innerHTML = `${header()}<main>${hero()}${education()}${experience()}${projectsSection()}${elsewhere()}</main>${footer()}`;
   initTheme();
   initWechatCopy();
-  if (!statsLoaded) {
-    statsLoaded = true;
-    loadVisitStats();
-  }
 }
 
 renderPage();
