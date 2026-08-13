@@ -2,7 +2,7 @@
 
 胡耀文的个人主页：**https://yaowenhu-pm.github.io**
 
-零框架、零构建的静态站，原生 ES Module 直接跑在 GitHub Pages 上。设计参考文字优先的极简风格：760px 窄版心、黑白基调、靠留白分区。
+零框架、零依赖的静态站，原生 ES Module 直接跑在 GitHub Pages 上。正文由 `build.js` 预渲染进 `index.html`，搜索引擎和不执行 JS 的抓取工具（含各类 AI 工具）也能直接读到内容。设计参考文字优先的极简风格：760px 窄版心、黑白基调、靠留白分区。
 
 ## 页面结构
 
@@ -12,7 +12,8 @@ Hero（照片 + 简历 / GitHub / 邮件 / 微信四个入口）→ 教育经历
 
 | 路径 | 职责 |
 |---|---|
-| `index.html` | 文档骨架、防闪主题脚本、模块入口 |
+| `index.html` | 文档骨架、防闪主题脚本、模块入口；`#app` 内是 `build.js` 生成的预渲染正文，不要手改 |
+| `build.js` | 预渲染脚本（零依赖 Node），改完内容后跑 `node build.js` 重新生成 |
 | `js/data.js` | 全部展示内容——改文案只动这个文件 |
 | `js/components/` | 各区块渲染器（hero、education、experience、projects、elsewhere、footer、header、theme） |
 | `js/editor.js` | 可视化编辑器（`?edit=1` 进入，GitHub OAuth 仅限本人） |
@@ -24,6 +25,12 @@ Hero（照片 + 简历 / GitHub / 邮件 / 微信四个入口）→ 教育经历
 
 ```bash
 python3 -m http.server 4173
+```
+
+改过 `js/data.js` 或 `js/components/` 后，必须重新预渲染再提交：
+
+```bash
+node build.js
 ```
 
 提交前检查（详见 AGENTS.md）：
@@ -49,5 +56,6 @@ git diff --check
 ## 更新约定
 
 - 内容改动只动 `js/data.js`，样式改动遵循 `tokens.css` 的变量体系。
+- 内容或组件改完必须跑 `node build.js`，否则爬虫看到的是旧内容（浏览器里 JS 会重渲染，肉眼发现不了这种不一致）。
 - 简历 PDF 与实际投递版本保持一致。
 - 每次更新后检查本 README 是否需要同步。
