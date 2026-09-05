@@ -35,7 +35,18 @@
         <p class="hero-summary" data-edit="hero.summary">AI PM，做面向用户的产品。</p>
         <p class="hero-summary" data-edit="hero.belief">相信产品的价值最终由多少人真的在用来决定。</p>
         <div class="hero-actions">
-          <a class="pill pill--light" href="mailto:yaowen_hu@foxmail.com">发送邮件</a>
+          <details class="email-contact">
+            <summary class="pill pill--light">发送邮件</summary>
+            <div class="email-panel">
+              <label for="contact-email">联系邮箱</label>
+              <input id="contact-email" type="text" value="yaowen_hu@foxmail.com" readonly />
+              <div class="email-actions">
+                <button class="pill pill--light" id="copy-email" type="button">复制邮箱</button>
+                <a href="mailto:yaowen_hu@foxmail.com">打开邮件应用</a>
+              </div>
+              <p id="email-status" role="status">可复制邮箱，在常用邮箱中写信。</p>
+            </div>
+          </details>
           <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="h17345250018">复制微信号</button>
         </div>
       </div>

@@ -33,6 +33,25 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .pill--light { background: var(--fill); color: var(--text); }
 .pill--light:hover { background: var(--fill-strong); color: var(--text); }
 
+.email-contact { position: relative; }
+.email-contact summary { list-style: none; }
+.email-contact summary::-webkit-details-marker { display: none; }
+.email-panel {
+  position: absolute; top: calc(100% + 10px); left: 0; z-index: 5;
+  width: min(320px, calc(100vw - 44px)); padding: 18px;
+  border: 1px solid var(--hairline); border-radius: var(--radius);
+  background: var(--bg); color: var(--text);
+}
+.email-panel label { display: block; color: var(--muted); font-size: 13px; }
+.email-panel input {
+  width: 100%; min-width: 0; margin: 6px 0 14px; padding: 8px 10px;
+  border: 1px solid var(--hairline); border-radius: 6px;
+  background: var(--fill); color: var(--text); font: inherit; font-size: 15px;
+}
+.email-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; font-size: 14px; }
+.email-actions a { text-decoration: underline; text-underline-offset: 3px; }
+.email-panel p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
 .hero-photo { position: relative; width: clamp(170px, 24vw, 200px); aspect-ratio: 1; margin: 8px 0 0; flex-shrink: 0; overflow: hidden; border-radius: 50%; background: var(--fill); }
 .hero-photo img { position: absolute; left: -13.3%; top: -20.5%; width: 121%; height: 121%; max-width: none; object-fit: cover; }
 
