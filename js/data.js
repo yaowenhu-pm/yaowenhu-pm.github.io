@@ -10,7 +10,7 @@ export const siteContent = {
   },
   "experiences": [
   {
-    "date": "2026.06.25 — 至今",
+    "date": "2026.06.25 — 2026.08.25",
     "company": "潜入梦科技（infiDive）",
     "role": "AI 产品实习生",
     "summary": "面向海外市场的 AI 角色养成 C 端产品，负责成长与经济数值体系：关系与虚拟货币双轨，升级曲线由留存窗口反推，而不是直接拍数值。",
