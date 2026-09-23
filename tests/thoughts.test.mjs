@@ -64,13 +64,41 @@ test("old section and note links reach their page without consuming login callba
   assert.equal(legacyDestination("/thoughts/", "", "#note-example"), null);
 });
 
-test("the three-page build preserves original text and stays idempotent", async () => {
+test("public Thoughts startup binds interactions without replacing published HTML", async () => {
+  const saved = Object.fromEntries(["document", "window", "localStorage"].map((key) => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));
+  let themeBound = false;
+  try {
+    globalThis.document = {
+      documentElement: { dataset: {} },
+      body: { dataset: { page: "thoughts" } },
+      querySelector(selector) {
+        assert.equal(selector, ".theme-toggle", "public startup must not access #app to replace its HTML");
+        return { addEventListener() { themeBound = true; } };
+      }
+    };
+    globalThis.window = {
+      location: { pathname: "/thoughts/", search: "", hash: "" },
+      addEventListener() {}, removeEventListener() {}
+    };
+    globalThis.localStorage = { getItem() { return null; } };
+    await import("../js/main.js");
+    assert.ok(themeBound);
+  } finally {
+    for (const [key, descriptor] of Object.entries(saved)) {
+      if (descriptor) Object.defineProperty(globalThis, key, descriptor);
+      else delete globalThis[key];
+    }
+  }
+});
+
+test("build versions dependencies and preserves the Thoughts-only publishing boundary", async () => {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
   const prefix = join(tmpdir(), "thoughts-build-");
   const fixture = mkdtempSync(prefix);
   try {
     const components = ["education", "elsewhere", "experience", "footer", "header", "hero", "projects", "theme", "thoughts"];
-    const files = ["build.js", "index.html", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`)];
+    const styles = ["main", "tokens", "base", "layout", "components", "responsive", "editor"];
+    const files = ["build.js", "index.html", "js/main.js", "js/editor.js", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`), ...styles.map((name) => `styles/${name}.css`)];
     for (const path of files) {
       mkdirSync(dirname(join(fixture, path)), { recursive: true });
       writeFileSync(join(fixture, path), readFileSync(join(root, path)));
@@ -82,10 +110,16 @@ test("the three-page build preserves original text and stays idempotent", async 
     assert.ok(first.includes("Literal $&amp; and $` and $&#39; and $$"));
     assert.equal((first.match(/id="app"/g) || []).length, 1);
     const built = Object.fromEntries(Object.entries(pages).map(([page, config]) => [page, readFileSync(join(fixture, config.file), "utf8")]));
+    const assetMap = (html) => JSON.parse(html.match(/<script type="importmap">(.*?)<\/script>/s)[1]).imports;
+    const imports = assetMap(first);
+    assert.equal(imports["/js/thoughts-data.js"], undefined);
+    assert.match(imports["/js/components/thoughts.js"], /^\/js\/components\/thoughts\.js\?v=[a-f0-9]{12}$/);
     for (const [page, html] of Object.entries(built)) {
       assert.ok(html.includes(`<body data-page="${page}">`));
-      assert.ok(html.includes(`href="/styles/main.css"`));
-      assert.ok(html.includes(`src="/js/main.js"`));
+      assert.ok(!html.includes(`href="/styles/main.css"`));
+      assert.deepEqual([...html.matchAll(/href="\/styles\/(\w+)\.css\?v=[a-f0-9]{12}"/g)].map((match) => match[1]), styles.slice(1));
+      assert.ok(html.includes(`src="${imports["/js/main.js"]}"`));
+      assert.ok(html.indexOf('type="importmap"') < html.indexOf('type="module"'));
       assert.ok(html.includes(`<title>${pages[page].title}</title>`));
     }
     assert.ok(!built.experience.includes('id="thoughts"'));
@@ -94,6 +128,28 @@ test("the three-page build preserves original text and stays idempotent", async 
     for (const [page, config] of Object.entries(pages)) {
       assert.equal(readFileSync(join(fixture, config.file), "utf8"), built[page]);
     }
+    // A newly synchronized note must not modify another page or asset tags.
+    const { thoughts } = await import(pathToFileURL(join(fixture, "js/thoughts-data.js")).href);
+    thoughts.unshift({ ...note, id: "note-newest", date: "2026-09-24" });
+    writeFileSync(join(fixture, "js/thoughts-data.js"), `export const thoughts = ${JSON.stringify(thoughts)};\n`);
+    await import(`${pathToFileURL(join(fixture, "build.js")).href}?new-note`);
+    for (const page of ["experience", "work"]) {
+      assert.equal(readFileSync(join(fixture, pages[page].file), "utf8"), built[page]);
+    }
+    const updated = readFileSync(join(fixture, "thoughts/index.html"), "utf8");
+    const outsideApp = (html) => html.replace(/<!-- prerender:start -->[\s\S]*?<!-- prerender:end -->/, "");
+    assert.equal(outsideApp(updated), outsideApp(first));
+    assert.ok(updated.includes('id="note-newest" open'));
+    // Changing only a child dependency must still give that asset a new URL.
+    for (const path of ["js/components/thoughts.js", "styles/components.css"]) {
+      writeFileSync(join(fixture, path), `${readFileSync(join(fixture, path), "utf8")}\n/* cache regression */\n`);
+    }
+    await import(`${pathToFileURL(join(fixture, "build.js")).href}?new-assets`);
+    const versioned = readFileSync(join(fixture, "thoughts/index.html"), "utf8");
+    assert.notEqual(assetMap(versioned)["/js/components/thoughts.js"], imports["/js/components/thoughts.js"]);
+    assert.equal(assetMap(versioned)["/js/main.js"], imports["/js/main.js"]);
+    const componentCss = (html) => html.match(/href="(\/styles\/components\.css\?v=[a-f0-9]{12})"/)[1];
+    assert.notEqual(componentCss(versioned), componentCss(first));
   } finally {
     assert.ok(resolve(fixture).startsWith(resolve(prefix)));
     rmSync(fixture, { recursive: true, force: true });

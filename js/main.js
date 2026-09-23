@@ -10,6 +10,11 @@ export function renderPage() {
   document.documentElement.style.setProperty("--editor-section-space", `${siteContent.style.sectionSpace}px`);
   const page = document.body.dataset.page || "experience";
   document.querySelector("#app").innerHTML = pageMarkup(page);
+  initPageInteractions();
+}
+
+function initPageInteractions() {
+  const page = document.body.dataset.page || "experience";
   initTheme();
   if (page === "experience") {
     initEmailCopy();
@@ -26,6 +31,9 @@ function redirectLegacyLink() {
 
 window.addEventListener("hashchange", redirectLegacyLink);
 if (!redirectLegacyLink()) {
-  renderPage();
+  // Thoughts are published with their HTML; cached data must not replace it.
+  // Profile pages also support data-only updates from the existing web editor.
+  if (document.body.dataset.page === "thoughts") initPageInteractions();
+  else renderPage();
   if (new URLSearchParams(window.location.search).get("edit") === "1") import("./editor.js");
 }
