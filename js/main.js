@@ -1,3 +1,4 @@
+import { initEmailCopy, initWechatCopy } from "./components/hero.js";
 import { initTheme } from "./components/theme.js";
 import { initThoughts } from "./components/thoughts.js";
 import { siteContent } from "./data.js";
@@ -10,6 +11,10 @@ export function renderPage() {
   const page = document.body.dataset.page || "experience";
   document.querySelector("#app").innerHTML = pageMarkup(page);
   initTheme();
+  if (page === "experience") {
+    initEmailCopy();
+    initWechatCopy();
+  }
   if (page === "thoughts") initThoughts();
 }
 

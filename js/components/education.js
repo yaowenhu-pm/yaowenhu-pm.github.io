@@ -3,7 +3,7 @@ import { siteContent } from "../data.js";
 export function education() {
   const { education: content } = siteContent;
   return `
-    <section class="shell section education" aria-labelledby="education-title">
+    <section id="education" class="shell section education" aria-labelledby="education-title">
       <div class="section-heading">
         <h2 id="education-title">教育经历</h2>
       </div>

@@ -37,7 +37,7 @@ test("all notes and their full original text are prerendered newest first", () =
 });
 
 test("each page contains only its own sections and a current navigation link", () => {
-  const expected = { experience: ["experience"], work: ["work", "elsewhere"], thoughts: ["thoughts"] };
+  const expected = { experience: ["top", "education", "experience"], work: ["work", "elsewhere"], thoughts: ["thoughts"] };
   for (const [page, sections] of Object.entries(expected)) {
     const html = pageMarkup(page);
     assert.deepEqual([...html.matchAll(/<section id="([^"]+)"/g)].map((match) => match[1]), sections);
