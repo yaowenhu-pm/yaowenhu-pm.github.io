@@ -1,6 +1,7 @@
 .brand { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
 .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--text); }
+.nav-links a[aria-current="page"] { color: var(--text); text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
 .nav-links a:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; border-radius: 2px; }
 .nav-tools { display: flex; align-items: center; gap: 14px; }
 .theme-toggle {
@@ -59,7 +60,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .experience-item { padding: 22px 0; border-bottom: 1px solid var(--hairline); }
 .experience-item:last-child { border-bottom: none; }
 .experience-no { color: var(--light); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; }
-.experience-item h3 { margin: 6px 0 8px; font-size: 17px; font-weight: 700; }
+.experience-item h2 { margin: 6px 0 8px; font-size: 17px; font-weight: 700; }
 .experience-role { color: var(--light); font-size: 14px; font-weight: 500; margin-left: 8px; }
 .experience-summary { color: var(--muted); font-size: 15px; line-height: 1.75; }
 .experience-item ul { margin: 8px 0 0; padding: 0; list-style: none; }
@@ -67,7 +68,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 
 .rowitem { display: flex; align-items: baseline; gap: 10px; padding: 18px 0; border-bottom: 1px solid var(--hairline); }
 .rowitem:last-child { border-bottom: none; }
-.rowitem h3 { font-size: 16px; font-weight: 600; }
+.rowitem h2, .rowitem h3 { font-size: 16px; font-weight: 600; }
 .rowitem p { color: var(--muted); font-size: 14.5px; margin-left: auto; text-align: right; }
 .ext {
   display: inline-flex; align-items: center; justify-content: center; align-self: center;

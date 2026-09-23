@@ -7,6 +7,7 @@ const undoHistory = [];
 let token = sessionStorage.getItem("hyw-editor-token");
 let activeCard = null;
 let editingPath = null;
+let leavingConfirmed = false;
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -31,6 +32,26 @@ function snapshot() {
   undoHistory.push(clone(siteContent));
   if (undoHistory.length > 30) undoHistory.shift();
   updateToolbar();
+}
+
+function hasUnsavedChanges() {
+  // 聚焦也会创建撤销快照；比较基线避免未改文字时误提示。
+  return JSON.stringify(siteContent) !== JSON.stringify(initial);
+}
+
+function preserveEditorNavigation() {
+  document.querySelectorAll(".site-header .brand, .site-header .nav-links a").forEach((link) => {
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin) return;
+    url.searchParams.set("edit", "1");
+    link.setAttribute("href", `${url.pathname}${url.search}${url.hash}`);
+  });
+}
+
+function protectUnsavedChanges(event) {
+  if (leavingConfirmed || !hasUnsavedChanges()) return;
+  event.preventDefault();
+  event.returnValue = "";
 }
 
 function api(path, options = {}) {
@@ -160,7 +181,7 @@ function bindEditableElements() {
     showCardActions(card.dataset.editCard, Number(card.dataset.editIndex), card);
   }));
   ["experiences", "projects"].forEach((type) => {
-    const list = document.querySelector(type === "experiences" ? ".experience-list" : ".project-grid");
+    const list = document.querySelector(type === "experiences" ? ".experience-list" : ".project-list");
     list?.insertAdjacentHTML("beforeend", `<button type="button" class="edit-add-card" data-add-card="${type}">＋ 添加${type === "experiences" ? "经历" : "作品"}</button>`);
   });
   document.querySelectorAll("[data-add-card]").forEach((button) => button.addEventListener("click", () => addCard(button.dataset.addCard)));
@@ -168,6 +189,7 @@ function bindEditableElements() {
 
 function renderEditablePage() {
   renderPage();
+  preserveEditorNavigation();
   bindEditableElements();
   updateToolbar();
 }
@@ -202,7 +224,7 @@ function undo() {
 
 function discard() {
   if (!confirm("放弃本次尚未发布的修改吗？")) return;
-  replaceContent(initial);
+  replaceContent(clone(initial));
   undoHistory.length = 0;
   activeCard = null;
   renderEditablePage();
@@ -225,7 +247,9 @@ async function publish() {
 }
 
 function exit() {
-  if (undoHistory.length && !confirm("还有未发布的修改，仍要退出吗？")) return;
+  if (hasUnsavedChanges() && !confirm("还有未发布的修改，仍要退出吗？")) return;
+  // 已明确确认退出，不再触发浏览器第二次离开提示。
+  leavingConfirmed = true;
   sessionStorage.removeItem("hyw-editor-token");
   location.href = location.pathname;
 }
@@ -258,4 +282,6 @@ async function initialize() {
   renderEditablePage();
 }
 
+preserveEditorNavigation();
+window.addEventListener("beforeunload", protectUnsavedChanges);
 initialize();

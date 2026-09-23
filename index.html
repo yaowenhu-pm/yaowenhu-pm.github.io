@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="胡耀文的个人主页：AI 产品经历、作品与日常随想。" />
-    <title>胡耀文</title>
-    <link rel="stylesheet" href="styles/main.css" />
+    <meta name="description" content="胡耀文的实习经历。" />
+    <title>经历 · 胡耀文</title>
+    <link rel="stylesheet" href="/styles/main.css" />
     <script>
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme === "dark" || savedTheme === "light") document.documentElement.dataset.theme = savedTheme;
     </script>
   </head>
-  <body>
+  <body data-page="experience">
     <div id="app" style="--editor-accent:#0c0d10;--editor-card-radius:14px;--editor-section-space:64px"><!-- prerender:start -->
     <header class="site-header">
       <nav class="shell nav" aria-label="主导航">
-        <a class="brand" href="#top" aria-label="返回顶部">胡耀文</a>
+        <a class="brand" href="/" aria-label="胡耀文 · 经历首页">胡耀文</a>
         <div class="nav-links">
-          <a href="#experience">经历</a>
-          <a href="#work">作品</a>
-          <a href="#thoughts">随想</a>
+          <a href="/" aria-current="page">经历</a>
+          <a href="/work/">作品</a>
+          <a href="/thoughts/">随想</a>
         </div>
         <div class="nav-tools">
 
@@ -30,324 +30,41 @@
         </div>
       </nav>
     </header><main>
-    <section id="top" class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title" data-edit="hero.greeting">你好，我是胡耀文</h1>
-        <p class="hero-summary" data-edit="hero.summary">AI PM，做面向用户的产品。</p>
-        <p class="hero-summary" data-edit="hero.belief">相信产品的价值最终由多少人真的在用来决定。</p>
-        <div class="hero-actions">
-          <details class="email-contact">
-            <summary class="pill pill--light">发送邮件</summary>
-            <div class="email-panel">
-              <label for="contact-email">联系邮箱</label>
-              <input id="contact-email" type="text" value="yaowen_hu@foxmail.com" readonly />
-              <div class="email-actions">
-                <button class="pill pill--light" id="copy-email" type="button">复制邮箱</button>
-                <a href="mailto:yaowen_hu@foxmail.com">打开邮件应用</a>
-              </div>
-              <p id="email-status" role="status">可复制邮箱，在常用邮箱中写信。</p>
-            </div>
-          </details>
-          <button class="pill pill--light" id="copy-wechat" type="button" data-wechat="h17345250018">复制微信号</button>
-        </div>
-      </div>
-      <figure class="hero-photo">
-        <img src="assets/hero-photo.jpg" alt="胡耀文的照片" data-edit-photo />
-      </figure>
-    </section>
-    <section class="shell section education" aria-labelledby="education-title">
-      <div class="section-heading">
-        <h2 id="education-title">教育经历</h2>
-      </div>
-      <div class="education-content">
-        <p><span class="education-school" data-edit="education.school">电子科技大学</span></p>
-        <p data-edit="education.degree">行政管理 · 本科 · GPA 3.73/4.0 · 2023.09 — 2027.07</p>
-      </div>
-    </section>
     <section id="experience" class="shell section" aria-labelledby="experience-title">
       <div class="section-heading">
-        <h2 id="experience-title">实习经历</h2>
+        <h1 id="experience-title">实习经历</h1>
       </div>
       <div class="experience-list">
     <article class="experience-item" data-edit-card="experiences" data-edit-index="0">
       <p class="experience-no"><span>01</span> · <span data-edit="experiences.0.date">2026.06 — 2026.08</span></p>
-      <h3><span data-edit="experiences.0.company">潜入梦科技（infiDive）</span><span class="experience-role" data-edit="experiences.0.role">AI 产品实习生</span></h3>
+      <h2><span data-edit="experiences.0.company">潜入梦科技（infiDive）</span><span class="experience-role" data-edit="experiences.0.role">AI 产品实习生</span></h2>
       <p class="experience-summary" data-edit="experiences.0.summary">面向海外市场的 AI 角色养成 C 端产品，负责成长与经济数值体系：关系与虚拟货币双轨，升级曲线由留存窗口反推，而不是直接拍数值。</p>
 
     </article>
     <article class="experience-item" data-edit-card="experiences" data-edit-index="1">
       <p class="experience-no"><span>02</span> · <span data-edit="experiences.1.date">2026.06 — 2026.06</span></p>
-      <h3><span data-edit="experiences.1.company">快手 · 商业化事业部</span><span class="experience-role" data-edit="experiences.1.role">AI 产品实习生</span></h3>
+      <h2><span data-edit="experiences.1.company">快手 · 商业化事业部</span><span class="experience-role" data-edit="experiences.1.role">AI 产品实习生</span></h2>
       <p class="experience-summary" data-edit="experiences.1.summary">短剧内容治理场景下的多模态 AI 标注平台建设，负责视频风险定位能力：把审核动作从“通读找错”收敛为“定点核对”。</p>
 
     </article>
     <article class="experience-item" data-edit-card="experiences" data-edit-index="2">
       <p class="experience-no"><span>03</span> · <span data-edit="experiences.2.date">2026.03 — 2026.05</span></p>
-      <h3><span data-edit="experiences.2.company">百度 · 健康业务部</span><span class="experience-role" data-edit="experiences.2.role">AI 产品实习生</span></h3>
+      <h2><span data-edit="experiences.2.company">百度 · 健康业务部</span><span class="experience-role" data-edit="experiences.2.role">AI 产品实习生</span></h2>
       <p class="experience-summary" data-edit="experiences.2.summary">负责 AI 医院后台的产品规划：把 AI 分导诊、AI 加号等核心能力做成医院可自主配置的形态，用一套产品承接不同医院的差异。</p>
 
     </article>
     <article class="experience-item" data-edit-card="experiences" data-edit-index="3">
       <p class="experience-no"><span>04</span> · <span data-edit="experiences.3.date">2025.11 — 2026.03</span></p>
-      <h3><span data-edit="experiences.3.company">好未来 · 平台产品部</span><span class="experience-role" data-edit="experiences.3.role">AI 产品实习生</span></h3>
+      <h2><span data-edit="experiences.3.company">好未来 · 平台产品部</span><span class="experience-role" data-edit="experiences.3.role">AI 产品实习生</span></h2>
       <p class="experience-summary" data-edit="experiences.3.summary">学而思亲子 APP 家长社区从 0 到 1：覆盖发帖、审核、推荐、搜索等核心模块，用分阶段供给策略解决冷启动。</p>
 
     </article>
     <article class="experience-item" data-edit-card="experiences" data-edit-index="4">
       <p class="experience-no"><span>05</span> · <span data-edit="experiences.4.date">2025.07 — 2025.11</span></p>
-      <h3><span data-edit="experiences.4.company">龙猫数据 · 大客户部</span><span class="experience-role" data-edit="experiences.4.role">数据产品实习生</span></h3>
+      <h2><span data-edit="experiences.4.company">龙猫数据 · 大客户部</span><span class="experience-role" data-edit="experiences.4.role">数据产品实习生</span></h2>
       <p class="experience-summary" data-edit="experiences.4.summary">面向头部大模型客户交付多模态数据集，通过流程优化压缩单项目交付周期。</p>
 
     </article></div>
-    </section>
-    <section id="work" class="shell section work" aria-labelledby="work-title">
-      <div class="section-heading">
-        <h2 id="work-title">作品</h2>
-      </div>
-      <div class="project-list">
-    <a class="rowitem" href="https://github.com/yaowenhu-pm/ai-product-playbook" target="_blank" rel="noreferrer" data-edit-card="projects" data-edit-index="0">
-      <h3 data-edit="projects.0.title">AI Product Playbook</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="projects.0.description">AI 产品经理的实践手册：产品判断、Prompt、Skill、Agent 和 AI 工作流沉淀。</p>
-    </a>
-    <a class="rowitem" href="https://github.com/yaowenhu-pm/yaowenhu-skills" target="_blank" rel="noreferrer" data-edit-card="projects" data-edit-index="1">
-      <h3 data-edit="projects.1.title">Agent Skills 合集</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="projects.1.description">个人 Agent Skills 集合，Claude Code 即装即用。</p>
-    </a></div>
-    </section>
-    <section id="thoughts" class="shell section thoughts" aria-labelledby="thoughts-title">
-      <div class="section-heading">
-        <h2 id="thoughts-title">随想</h2>
-        <p class="thoughts-intro">从朋友圈选一些文字，记录日常的思考。</p>
-      </div>
-      <div class="thought-list">
-      <article class="thought-item">
-        <details class="thought" id="note-20260922-0e8a1930">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">能力与成本的取舍</span>
-              <time datetime="2026-09-22">2026.09.22</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">Jev 体现的是一种很自然的工程思想：根据任务，决定用什么能力，取什么、舍什么。</span>
-          </summary>
-          <div class="thought-body">Jev 体现的是一种很自然的工程思想：根据任务，决定用什么能力，取什么、舍什么。
-
-有些事情传统软件工程已经优化得很好，甚至不应该用模型。有些事情需要理解语义，但可选动作有限，可以用专门的模型判断。碰到复杂推理和未知情况，再调用更强的能力。
-
-这和公司里的分工很像：能在一线解决的事情就地处理，解决不了的再往上交。什么事情都上报老板，公司很难高效运转。Agent 也没有必要每一步都调用最强的模型。
-
-GUI 也是一个很好的联想。按钮、菜单、表单，通过图形界面把有限的选择呈现给人。人看当前状态，判断一下、点击一下、填写一下，再继续。Agent 也可以利用这样的结构。
-
-但按钮是固定的，该点哪个仍然依赖 context。它要知道正在做什么、之前发生了什么、这一步希望得到什么结果。问题和选项本身，也需要被认真定义。
-
-当这些判断今天做一万次，明天再做一万次，取舍和优化就变得重要了。想让顶级智能每个人都能用到，必须考虑成本。
-
-准确说，不应该叫便宜，应该叫经济。把可靠性、延迟、出错和维护一起算进去，让足够好的能力能够被高频使用，才会带来普及。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260918-89e49c6d">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">工具与创造</span>
-              <time datetime="2026-09-18">2026.09.18</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">看了 Bret Victor 的《Inventing on Principle》，天才。</span>
-          </summary>
-          <div class="thought-body">看了 Bret Victor 的《Inventing on Principle》，天才。
-他能察觉那些大家早已习惯、甚至不再认为是问题的限制，又能亲手做出一个不同的世界，让你看见：原来不必如此。
-“创作者需要与正在创造的东西建立即时联系。”好的工具让人看见变化，也让想法在尝试中生长。很多想法没能成为现实，可能只是工具让它们太难被表达。
-我们一直在问：“怎样让 AI 更顺畅地完成任务？”沿着 Bret 的思路，还应该追问：这个工具，有没有让人更容易理解、尝试，并产生原本不会产生的想法？</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260915-1e206bc0">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">关于速度与原则</span>
-              <time datetime="2026-09-15">2026.09.15</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">几点新认知：</span>
-          </summary>
-          <div class="thought-body">几点新认知：
-1.不要错误估计做到高标准真正需要的时间。
-2.速度应该用于验证方向，而不是强迫复杂事情在不现实的时间里成熟。
-3.克制不是原则，明确自己相信什么之后做出的取舍才是原则。
-4.原则是为目标服务的；当维护原则本身开始压过目标，原则就变成了相。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260908-ba5f0f86">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">AI 的社会记忆</span>
-              <time datetime="2026-09-08">2026.09.08</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">我认为很多AI陪伴产品现在最大的问题之一，是它们仍然把用户当成一个孤立的人。</span>
-          </summary>
-          <div class="thought-body">我认为很多AI陪伴产品现在最大的问题之一，是它们仍然把用户当成一个孤立的人。
-
-现在的AI会记住用户喜欢什么、讨厌什么、叫什么名字，以及过去说过什么，这些可以被称为个人记忆。但真实的人并不是一个固定的profile，更像是一个不断处于各种关系中的节点。
-
-马克思说人的本质不是单个人所固有的抽象物，在其现实性上，它是一切社会关系的总和。这句话放到AI产品上，可能有一个很直接的启发：下一代AI需要理解的，也许不只是“用户是谁”，而是他正在和谁发生关系，在这段关系中承担什么角色，这段关系过去发生过什么，又正在如何变化。
-
-所以比个人记忆更高级的，可能是社会记忆。
-
-AI不仅知道“我喜欢AI”，还应该逐渐理解“我现在和谁一起工作，他们分别负责什么，我对谁有信任，我和谁存在分歧，这段关系过去发生过什么变化”，甚至知道“我在不同关系中分别承担什么角色”。这才是真正的social context。
-
-同一个人在面对朋友、父母、老板、恋人时，并不是完全相同的自己。一个人是谁，也不应该只由年龄、职业、兴趣和历史聊天记录定义，而是在不同的关系、角色、场景和时间中不断变化。
-
-所以我认为，下一代AI的context不应该只是用户历史聊天记录，而应该逐渐变成：
-
-用户×人物×关系×场景×时间×目标
-
-这背后可能对应着AI理解能力的一次跃迁：
-
-从理解文本，到理解人，再到理解人所处的关系。
-
-互联网时代，我们习惯把人抽象成用户；但AI如果真的要成为长期存在于人生活中的智能体，它最终需要理解的，可能不是一个静态的user profile，而是一个不断变化的、由社会关系构成的人。
-
-人的本质不是一组标签，人的context也不应该只是一段聊天记录。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260908-bc4adea5">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">产品的价值与取舍</span>
-              <time datetime="2026-09-08">2026.09.08</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">伟大的产品一定有强烈的产品主张和taste。</span>
-          </summary>
-          <div class="thought-body">伟大的产品一定有强烈的产品主张和taste。
-但真正需要偏执的，不是对自己每一个判断都偏执，而是对少数核心原则偏执，对事实保持谦逊。
-产品最底层的第一性不是简洁、易用或者优雅，而是价值：用户为什么要用你，你到底让他从什么状态变到了什么更好的状态。
-简洁和易用其实可以从这里推出来。用户为了获得价值，需要付出时间、学习成本、注意力、操作步骤、决策成本和风险。好的产品，就是尽可能降低这些不必要的成本，把复杂度留给自己，而不是暴露给用户。
-除此之外还有一致性、可靠性和取舍。一个产品应该让用户逐渐形成稳定的预期，应该在关键时刻值得信任，也必须明确知道什么不做。产品永远有trade-off，taste很大一部分就是知道应该牺牲什么。
-优雅反而不是第一性。优雅更像是这些东西都做对以后自然出现的结果：背后极其复杂，但用户用起来觉得本来就应该这样。
-所以伟大的产品不一定都有乔布斯式的个人风格，但一定有鲜明的选择。
-对原则偏执，对事实谦逊。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260907-e3441f9f">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">把问题问清楚</span>
-              <time datetime="2026-09-07">2026.09.07</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">最近越来越觉得，提问能力本身就是思考能力的一部分。</span>
-          </summary>
-          <div class="thought-body">最近越来越觉得，提问能力本身就是思考能力的一部分。
-好问题不一定长，但提问之前往往已经完成了大量思考：我现在在哪、目标是什么、有什么约束、自己的判断是什么、真正不确定的又是什么。
-最差的问题是把一个巨大的模糊问题直接扔给别人，让别人替自己定义问题。
-好问题则是自己已经走了很远，只剩下一个真正不知道的地方。
-context+goal+constraint+hypothesis+ask，很多时候问题问清楚了，答案已经出来一半了。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260823-848af7ee">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">下一代 AI 交互</span>
-              <time datetime="2026-08-23">2026.08.23</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">关于下一代AI交互的几个判断：</span>
-          </summary>
-          <div class="thought-body">关于下一代AI交互的几个判断：
-
-1. context的终局问题可能不是不够长，而是太多。
-当AI可以持续读取屏幕、语音、位置、邮件、日历和历史行为后，核心能力会从context length转向context selection：什么该记，什么该忘，什么该在此刻被想起。
-
-2. ignore可能是agent最重要的能力之一。
-环境智能体每天可以感知海量事件，但真正值得提醒人的可能只有几个。知道什么时候不说话、不行动，可能比回答得更聪明更难。
-
-3. 推荐系统之后，可能会出现attention system。
-推荐系统解决“海量内容里什么值得看”，attention system解决“海量context里什么值得进入人的注意力”。前者分发内容，后者分发注意力，甚至决定行动。
-
-4. 端侧模型的重要价值可能不是回答问题，而是成为context gateway。
-持续感知、筛选和压缩环境信息，决定什么直接忘掉、什么进入memory、什么值得调用更强的模型。
-
-5. agent UX的核心不是conversation，而是autonomy。
-从observe、suggest、prepare到act，真正需要设计的是：AI应该自主到什么程度，以及在哪一步把控制权交还给人。
-
-某种意义上，下一阶段竞争的不只是模型有多聪明，而是谁能把无限context压缩成正确的memory、attention和action。</div>
-        </details>
-      </article>
-      <article class="thought-item">
-        <details class="thought" id="note-20260706-d5cb9a01">
-          <summary class="thought-summary">
-            <span class="thought-heading">
-              <span class="thought-title">过去一年的复盘</span>
-              <time datetime="2026-07-06">2026.07.06</time>
-              <span class="thought-chevron" aria-hidden="true"></span>
-            </span>
-            <span class="thought-excerpt">对过去一年的几点复盘。</span>
-          </summary>
-          <div class="thought-body">对过去一年的几点复盘。
-
-1. 小步迭代
-2. 选对方向
-3. 大胆下注
-4. 积极主动
-5. 要事为先
-6. 快速调整
-7. 保持好奇
-
-一个一个聊吧。
-
-小步迭代是传统互联网的经典方法论，在我这里更想说的是很多事情在想清楚之前，先做，做才有结果，做才有反馈，只有个想法是永远成不了事的，尤其是今天，模型几乎给了人言出法随的能力，好问题几乎就等于好答案。
-
-选对方向其实还是选择问题，选择大于努力，拆开来看需要选的很多，timing、产品、市场、行业、老板、团队、投资，etc，回到小步迭代，很多时候对不对谁知道呢，必须 bet。
-
-这也就是大胆下注，赌一件事能成，然后撬动所有能撬动的资源去做，都不敢下注怎么配赢。
-
-积极主动和要事为先两条都是《高效能人士的七个习惯》里的，虽然书名很蠢，一些原则还是有用的，凡事想要的就要争，不争怎么知道能不能拿到，能不能做成。要事为先这点在工作里面体会比较深，可以很忙，完全不忙说明没什么好的机会，但绝不能太忙，对一个人和一家公司都是，要有埋头做事的时间和人，也必须要有抬头看路的时间和人。
-
-快速调整，准确地说应该是快速试错、快速验证、快速调整，错了就认，反复撞墙不认错是不明智的。
-
-保持好奇，对世界充满好奇才有做出好的产品的可能性，乔布斯讲“Stay Hungry, Stay Foolish”，也许应该加上——Stay Curious。
-
-我把这些思考陆续整理成了一份《AI Product Playbook》，希望持续沉淀自己对 AI 产品、AI Agent和产品方法论的理解，也欢迎交流。
-
-GitHub：
-https://github.com/Diefeng-Hu/ai-product-playbook</div>
-        </details>
-      </article></div>
-    </section>
-    <section id="elsewhere" class="shell section" aria-labelledby="elsewhere-title">
-      <div class="section-heading">
-        <h2 id="elsewhere-title">在别处找我</h2>
-      </div>
-      <div class="elsewhere-list">
-    <a class="rowitem" href="https://github.com/yaowenhu-pm" target="_blank" rel="noreferrer" data-edit-card="elsewhere" data-edit-index="0">
-      <h3 data-edit="elsewhere.0.title">GitHub</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="elsewhere.0.description">开源项目与代码。</p>
-    </a>
-    <a class="rowitem" href="assets/wechat-qr.jpg" target="_blank" rel="noreferrer" data-edit-card="elsewhere" data-edit-index="1">
-      <h3 data-edit="elsewhere.1.title">公众号</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="elsewhere.1.description">长文与 AI 实践记录。</p>
-    </a>
-    <a class="rowitem" href="https://www.xiaohongshu.com/user/profile/688f37480000000028027ee6" target="_blank" rel="noreferrer" data-edit-card="elsewhere" data-edit-index="2">
-      <h3 data-edit="elsewhere.2.title">小红书</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="elsewhere.2.description">AI 与产品内容分享。</p>
-    </a>
-    <a class="rowitem" href="https://okjk.co/NsEfZL" target="_blank" rel="noreferrer" data-edit-card="elsewhere" data-edit-index="3">
-      <h3 data-edit="elsewhere.3.title">即刻</h3>
-      <span class="ext" aria-hidden="true">&#8599;</span>
-      <p data-edit="elsewhere.3.description">日常想法与动态。</p>
-    </a></div>
     </section></main>
     <footer class="shell footer">
       <p class="footer-slogan" data-edit="footer.slogan">Bet on something, do it.</p>
@@ -355,6 +72,6 @@ https://github.com/Diefeng-Hu/ai-product-playbook</div>
         <p>© 胡耀文</p>
       </div>
     </footer><!-- prerender:end --></div>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>

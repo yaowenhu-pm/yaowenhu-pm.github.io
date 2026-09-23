@@ -1,10 +1,10 @@
-import { experiences } from "../data.js";
+import { siteContent } from "../data.js";
 
 export function experience() {
-  const items = experiences.map((item, index) => `
+  const items = siteContent.experiences.map((item, index) => `
     <article class="experience-item" data-edit-card="experiences" data-edit-index="${index}">
       <p class="experience-no"><span>0${index + 1}</span> · <span data-edit="experiences.${index}.date">${item.date.replace(/(\d{4}\.\d{2})\.\d{2}/g, "$1")}</span></p>
-      <h3><span data-edit="experiences.${index}.company">${item.company}</span><span class="experience-role" data-edit="experiences.${index}.role">${item.role}</span></h3>
+      <h2><span data-edit="experiences.${index}.company">${item.company}</span><span class="experience-role" data-edit="experiences.${index}.role">${item.role}</span></h2>
       <p class="experience-summary" data-edit="experiences.${index}.summary">${item.summary}</p>
       ${item.points.length ? `<ul>${item.points.map((point, pointIndex) => `<li data-edit="experiences.${index}.points.${pointIndex}">${point}</li>`).join("")}</ul>` : ""}
     </article>`).join("");
@@ -12,7 +12,7 @@ export function experience() {
   return `
     <section id="experience" class="shell section" aria-labelledby="experience-title">
       <div class="section-heading">
-        <h2 id="experience-title">实习经历</h2>
+        <h1 id="experience-title">实习经历</h1>
       </div>
       <div class="experience-list">${items}</div>
     </section>`;

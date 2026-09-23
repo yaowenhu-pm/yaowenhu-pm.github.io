@@ -31,7 +31,6 @@ export function validateThoughts(entries) {
 
 export function thoughtsSection(entries = thoughts) {
   const sorted = [...validateThoughts(entries)].sort((a, b) => b.date.localeCompare(a.date));
-  if (!sorted.length) return "";
   const notes = sorted.map((entry) => {
     const title = escapeHtml(entry.title);
     const excerpt = escapeHtml(entry.content.trim().split(/\n/).find((line) => line.trim()) || "");
@@ -53,10 +52,10 @@ export function thoughtsSection(entries = thoughts) {
   return `
     <section id="thoughts" class="shell section thoughts" aria-labelledby="thoughts-title">
       <div class="section-heading">
-        <h2 id="thoughts-title">随想</h2>
+        <h1 id="thoughts-title">随想</h1>
         <p class="thoughts-intro">从朋友圈选一些文字，记录日常的思考。</p>
       </div>
-      <div class="thought-list">${notes}</div>
+      <div class="thought-list">${notes || '<p class="thoughts-intro">还没有发布的随想。</p>'}</div>
     </section>`;
 }
 
