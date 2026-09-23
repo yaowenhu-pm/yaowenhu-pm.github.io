@@ -6,16 +6,18 @@ import { header } from "./components/header.js";
 import { hero, initEmailCopy, initWechatCopy } from "./components/hero.js";
 import { projectsSection } from "./components/projects.js";
 import { initTheme } from "./components/theme.js";
+import { thoughtsSection, initThoughts } from "./components/thoughts.js";
 import { siteContent } from "./data.js";
 
 export function renderPage() {
   document.documentElement.style.setProperty("--editor-accent", siteContent.style.accentColor);
   document.documentElement.style.setProperty("--editor-card-radius", `${siteContent.style.cardRadius}px`);
   document.documentElement.style.setProperty("--editor-section-space", `${siteContent.style.sectionSpace}px`);
-  document.querySelector("#app").innerHTML = `${header()}<main>${hero()}${education()}${experience()}${projectsSection()}${elsewhere()}</main>${footer()}`;
+  document.querySelector("#app").innerHTML = `${header()}<main>${hero()}${education()}${experience()}${projectsSection()}${thoughtsSection()}${elsewhere()}</main>${footer()}`;
   initTheme();
   initEmailCopy();
   initWechatCopy();
+  initThoughts();
 }
 
 renderPage();

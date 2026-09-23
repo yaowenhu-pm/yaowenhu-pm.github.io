@@ -6,7 +6,7 @@
 
 ## 页面结构
 
-Hero（照片 + 简历 / GitHub / 邮件 / 微信四个入口）→ 教育经历 → 实习经历 → 作品 → 在别处找我（公众号 / 小红书 / 即刻）→ 页脚。
+Hero → 教育经历 → 实习经历 → 作品 → 随想 → 在别处找我 → 页脚。导航提供“经历 / 作品 / 随想”，手机端同样可用。
 
 ## 目录
 
@@ -14,7 +14,8 @@ Hero（照片 + 简历 / GitHub / 邮件 / 微信四个入口）→ 教育经历
 |---|---|
 | `index.html` | 文档骨架、防闪主题脚本、模块入口；`#app` 内是 `build.js` 生成的预渲染正文，不要手改 |
 | `build.js` | 预渲染脚本（零依赖 Node），改完内容后跑 `node build.js` 重新生成 |
-| `js/data.js` | 全部展示内容——改文案只动这个文件 |
+| `js/data.js` | 个人资料与作品内容，并统一导出随想数据 |
+| `js/thoughts-data.js` | 精选随想数据，由 `js/data.js` 统一导出；独立于个人资料编辑器，避免相互覆盖 |
 | `js/components/` | 各区块渲染器（hero、education、experience、projects、elsewhere、footer、header、theme） |
 | `js/editor.js` | 可视化编辑器（`?edit=1` 进入，GitHub OAuth 仅限本人） |
 | `styles/` | `tokens.css`（设计变量 + 深浅色）→ base → layout → components → responsive |
@@ -56,7 +57,10 @@ git diff --check
 
 ## 更新约定
 
-- 内容改动只动 `js/data.js`，样式改动遵循 `tokens.css` 的变量体系。
+- 个人资料改动在 `js/data.js`，随想在 `js/thoughts-data.js`，样式改动遵循 `tokens.css` 的变量体系。
+- “随想”每条仅有 `id`、原始发表日期 `date`、阅读标题 `title`、原文 `content`。按日期倒序，点击展开全文，全部正文也会预渲染；单条可用 `#note-…` 定位。
+- 同步程序和源资料留在本机私有目录。这里只接收经过筛选的公开文字，不保存账号标识、数据库、朋友圈原始记录、互动、图片或同步日志。新增与正文修订都需重新筛选；读取失败不能发布旧快照。
+- 新随想发布需同时提交 `js/thoughts-data.js` 与 `node build.js` 生成的 `index.html`。内置 `node --test tests/thoughts.test.mjs` 检查文本转义、公开字段和预渲染；不需要安装依赖。
 - 内容或组件改完必须跑 `node build.js`，否则爬虫看到的是旧内容（浏览器里 JS 会重渲染，肉眼发现不了这种不一致）。
 - 简历 PDF 与实际投递版本保持一致。
 - 每次更新后检查本 README 是否需要同步。

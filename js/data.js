@@ -96,3 +96,4 @@ export const siteContent = {
 export const email = siteContent.hero.email;
 export const experiences = siteContent.experiences;
 export const projects = siteContent.projects;
+export { thoughts } from "./thoughts-data.js";

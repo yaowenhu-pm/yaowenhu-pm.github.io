@@ -8,6 +8,7 @@ export function header() {
         <div class="nav-links">
           <a href="#experience">经历</a>
           <a href="#work">作品</a>
+          <a href="#thoughts">随想</a>
         </div>
         <div class="nav-tools">
           ${themeToggle()}

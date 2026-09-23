@@ -12,13 +12,14 @@ import { footer } from "./js/components/footer.js";
 import { header } from "./js/components/header.js";
 import { hero } from "./js/components/hero.js";
 import { projectsSection } from "./js/components/projects.js";
+import { thoughtsSection } from "./js/components/thoughts.js";
 import { siteContent } from "./js/data.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const indexPath = join(root, "index.html");
 
 // 与 js/main.js 的 renderPage 保持同一拼装顺序；去掉行尾空白以通过 git diff --check
-const markup = `${header()}<main>${hero()}${education()}${experience()}${projectsSection()}${elsewhere()}</main>${footer()}`
+const markup = `${header()}<main>${hero()}${education()}${experience()}${projectsSection()}${thoughtsSection()}${elsewhere()}</main>${footer()}`
   .split("\n").map((line) => line.trimEnd()).join("\n");
 
 // main.js 里设在 documentElement 上的样式变量，静态版设在 #app 上等效继承
@@ -35,5 +36,5 @@ if (!pattern.test(html)) {
   console.error("index.html 里没找到 #app 挂载点，检查文档结构是否变了");
   process.exit(1);
 }
-writeFileSync(indexPath, html.replace(pattern, `${appDiv}\n    `));
+writeFileSync(indexPath, html.replace(pattern, () => `${appDiv}\n    `));
 console.log(`已预渲染 ${markup.length} 字符进 index.html`);

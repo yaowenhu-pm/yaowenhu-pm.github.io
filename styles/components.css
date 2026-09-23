@@ -1,6 +1,7 @@
 .brand { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
 .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--text); }
+.nav-links a:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; border-radius: 2px; }
 .nav-tools { display: flex; align-items: center; gap: 14px; }
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -78,6 +79,23 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 
 .education-content p { color: var(--muted); font-size: 15px; }
 .education-school { color: var(--text); font-weight: 600; }
+
+.thoughts-intro { color: var(--muted); font-size: 14px; }
+.thought-list { margin-top: 18px; }
+.thought-item { border-bottom: 1px solid var(--hairline); }
+.thought { scroll-margin-top: 84px; }
+.thought-summary { padding: 22px 0; list-style: none; cursor: pointer; }
+.thought-summary::-webkit-details-marker { display: none; }
+.thought-summary:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; border-radius: 2px; }
+.thought-heading { display: flex; align-items: center; gap: 16px; }
+.thought-title { flex: 1; font-size: 17px; font-weight: 600; line-height: 1.6; }
+.thought-heading time { color: var(--light); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.thought-chevron { width: 7px; height: 7px; margin: 0 3px; border: solid var(--light); border-width: 0 1px 1px 0; transform: rotate(45deg); flex-shrink: 0; transition: transform 140ms ease; }
+.thought-excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin-top: 8px; color: var(--muted); font-size: 14.5px; line-height: 1.8; }
+.thought-summary:hover .thought-title { color: var(--muted); }
+.thought[open] .thought-chevron { transform: rotate(225deg); }
+.thought[open] .thought-excerpt { display: none; }
+.thought-body { padding: 0 0 28px; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--muted); font-size: 15.5px; line-height: 1.95; }
 
 .footer-slogan { color: var(--text); font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--light); font-size: 13px; }
