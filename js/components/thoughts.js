@@ -31,12 +31,13 @@ export function validateThoughts(entries) {
 
 export function thoughtsSection(entries = thoughts) {
   const sorted = [...validateThoughts(entries)].sort((a, b) => b.date.localeCompare(a.date));
-  const notes = sorted.map((entry) => {
+  const notes = sorted.map((entry, index) => {
     const title = escapeHtml(entry.title);
     const excerpt = escapeHtml(entry.content.trim().split(/\n/).find((line) => line.trim()) || "");
+    const body = entry.content.replace(/\r\n?/g, "\n").split("\n").filter((line) => line.trim()).join("\n");
     return `
       <article class="thought-item">
-        <details class="thought" id="${entry.id}">
+        <details class="thought" id="${entry.id}"${index === 0 ? " open" : ""}>
           <summary class="thought-summary">
             <span class="thought-heading">
               <span class="thought-title">${title}</span>
@@ -45,7 +46,7 @@ export function thoughtsSection(entries = thoughts) {
             </span>
             <span class="thought-excerpt">${excerpt}</span>
           </summary>
-          <div class="thought-body">${escapeHtml(entry.content)}</div>
+          <div class="thought-body">${escapeHtml(body)}</div>
         </details>
       </article>`;
   }).join("");

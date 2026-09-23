@@ -84,6 +84,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .thoughts-intro { color: var(--muted); font-size: 14px; }
 .thought-list { margin-top: 18px; }
 .thought-item { border-bottom: 1px solid var(--hairline); }
+.thought-item:last-child { border-bottom: none; }
 .thought { scroll-margin-top: 84px; }
 .thought-summary { padding: 22px 0; list-style: none; cursor: pointer; }
 .thought-summary::-webkit-details-marker { display: none; }

@@ -29,10 +29,15 @@ test("invalid dates and duplicate anchors fail the build", () => {
   assert.throws(() => validateThoughts([{ ...note, id: 'x" onmouseover="bad()' }]));
 });
 
-test("all notes and their full original text are prerendered newest first", () => {
+test("notes render newest first with the latest open and blank lines removed only for display", () => {
   const html = thoughtsSection([{ ...note, id: "note-older", date: "2026-01-01" }, note]);
   assert.ok(html.indexOf('id="note-20260922-example"') < html.indexOf('id="note-older"'));
-  assert.ok(html.includes("第一段\n\n第二段"));
+  assert.ok(html.includes("第一段\n第二段"));
+  assert.ok(html.includes('id="note-20260922-example" open'));
+  assert.ok(!html.includes('id="note-older" open'));
+  assert.equal(note.content, "第一段\n\n第二段");
+  const spaced = thoughtsSection([{ ...note, content: "AI 产品\n \t\n第二段 AI Product Playbook" }]);
+  assert.ok(spaced.includes("AI 产品\n第二段 AI Product Playbook"));
   assert.equal((html.match(/<details /g) || []).length, 2);
 });
 
