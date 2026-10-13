@@ -5,7 +5,7 @@ export function footer() {
     <footer class="shell footer">
       <p class="footer-slogan" data-edit="footer.slogan">${siteContent.footer.slogan}</p>
       <div class="footer-row">
-        <p>© 胡耀文</p>
+        <p data-i18n="footer.copyright">© 胡耀文</p>
       </div>
     </footer>`;
 }

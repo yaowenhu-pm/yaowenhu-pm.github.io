@@ -71,9 +71,10 @@ test("public Thoughts startup binds interactions without replacing published HTM
     globalThis.document = {
       documentElement: { dataset: {} },
       body: { dataset: { page: "thoughts" } },
+      querySelectorAll() { return []; },
       querySelector(selector) {
-        assert.equal(selector, ".theme-toggle", "public startup must not access #app to replace its HTML");
-        return { addEventListener() { themeBound = true; } };
+        assert.ok([".theme-toggle", ".language-toggle", 'meta[name="description"]'].includes(selector), "public startup must not access #app to replace its HTML");
+        return selector === ".theme-toggle" ? { addEventListener() { themeBound = true; } } : null;
       }
     };
     globalThis.window = {
@@ -98,7 +99,7 @@ test("build versions dependencies and preserves the Thoughts-only publishing bou
   try {
     const components = ["education", "elsewhere", "experience", "footer", "header", "hero", "projects", "theme", "thoughts"];
     const styles = ["main", "tokens", "base", "layout", "components", "responsive", "editor"];
-    const files = ["build.js", "index.html", "js/main.js", "js/editor.js", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`), ...styles.map((name) => `styles/${name}.css`)];
+    const files = ["build.js", "index.html", "js/main.js", "js/i18n.js", "js/editor.js", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`), ...styles.map((name) => `styles/${name}.css`)];
     for (const path of files) {
       mkdirSync(dirname(join(fixture, path)), { recursive: true });
       writeFileSync(join(fixture, path), readFileSync(join(root, path)));

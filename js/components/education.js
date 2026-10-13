@@ -5,11 +5,11 @@ export function education() {
   return `
     <section id="education" class="shell section education" aria-labelledby="education-title">
       <div class="section-heading">
-        <h2 id="education-title">教育经历</h2>
+        <h2 id="education-title" data-i18n="education.title">教育经历</h2>
       </div>
       <div class="education-content">
-        <p><span class="education-school" data-edit="education.school">${content.school}</span></p>
-        <p data-edit="education.degree">${content.degree}</p>
+        <p><span class="education-school" data-edit="education.school" data-i18n="education.school">${content.school}</span></p>
+        <p data-edit="education.degree" data-i18n="education.degree">${content.degree}</p>
       </div>
     </section>`;
 }

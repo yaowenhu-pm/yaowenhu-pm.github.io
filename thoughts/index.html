@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="/styles/tokens.css?v=f0e6d8321e89" />
     <link rel="stylesheet" href="/styles/base.css?v=58b34f9e78c8" />
     <link rel="stylesheet" href="/styles/layout.css?v=3ab70abe4cf4" />
-    <link rel="stylesheet" href="/styles/components.css?v=5f800eb573d7" />
-    <link rel="stylesheet" href="/styles/responsive.css?v=db5200f496a3" />
+    <link rel="stylesheet" href="/styles/components.css?v=5bb896b9d3a3" />
+    <link rel="stylesheet" href="/styles/responsive.css?v=d655d90e8aed" />
     <link rel="stylesheet" href="/styles/editor.css?v=85f72cc7cdc1" />
-    <script type="importmap">{"imports":{"/js/components/education.js":"/js/components/education.js?v=12c0a5df4554","/js/components/elsewhere.js":"/js/components/elsewhere.js?v=5be9d6454aef","/js/components/experience.js":"/js/components/experience.js?v=703f36ddac2c","/js/components/footer.js":"/js/components/footer.js?v=443ab11141d0","/js/components/header.js":"/js/components/header.js?v=66ed7d1547e6","/js/components/hero.js":"/js/components/hero.js?v=70339c0a6bf7","/js/components/projects.js":"/js/components/projects.js?v=dd0b0258e7e7","/js/components/theme.js":"/js/components/theme.js?v=3519f6aa798e","/js/components/thoughts.js":"/js/components/thoughts.js?v=6de3c01b88a4","/js/data.js":"/js/data.js?v=b120c615b17f","/js/editor.js":"/js/editor.js?v=6a5486670264","/js/main.js":"/js/main.js?v=881b8b178b9f","/js/pages.js":"/js/pages.js?v=335283556f0c"}}</script>
+    <script type="importmap">{"imports":{"/js/components/education.js":"/js/components/education.js?v=c0fd4ed070bd","/js/components/elsewhere.js":"/js/components/elsewhere.js?v=f04473ef3fe8","/js/components/experience.js":"/js/components/experience.js?v=8f7f2b656ea1","/js/components/footer.js":"/js/components/footer.js?v=6c1550f450aa","/js/components/header.js":"/js/components/header.js?v=24c671b115b2","/js/components/hero.js":"/js/components/hero.js?v=8785eb68808b","/js/components/projects.js":"/js/components/projects.js?v=da0c649078fe","/js/components/theme.js":"/js/components/theme.js?v=0080189e8633","/js/components/thoughts.js":"/js/components/thoughts.js?v=cca13268b61c","/js/data.js":"/js/data.js?v=548bb0590278","/js/editor.js":"/js/editor.js?v=6a5486670264","/js/i18n.js":"/js/i18n.js?v=a02bc564b93f","/js/main.js":"/js/main.js?v=e5d0c27ce70d","/js/pages.js":"/js/pages.js?v=335283556f0c"}}</script>
     <!-- assets:end -->
     <script>
       const savedTheme = localStorage.getItem("theme");
@@ -22,16 +22,17 @@
   <body data-page="thoughts">
     <div id="app" style="--editor-accent:#0c0d10;--editor-card-radius:14px;--editor-section-space:64px"><!-- prerender:start -->
     <header class="site-header">
-      <nav class="shell nav" aria-label="主导航">
-        <a class="brand" href="/" aria-label="胡耀文 · 经历首页">胡耀文</a>
+      <nav class="shell nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+        <a class="brand" href="/" data-page-link aria-label="胡耀文 · 经历首页" data-i18n="nav.brand" data-i18n-aria-label="nav.home">胡耀文</a>
         <div class="nav-links">
-          <a href="/">经历</a>
-          <a href="/work/">作品</a>
-          <a href="/thoughts/" aria-current="page">随想</a>
+          <a href="/" data-page-link data-i18n="nav.experience">经历</a>
+          <a href="/work/" data-page-link data-i18n="nav.work">作品</a>
+          <a href="/thoughts/" aria-current="page" data-page-link data-i18n="nav.thoughts">随想</a>
         </div>
         <div class="nav-tools">
+          <button class="language-toggle" type="button" aria-label="Switch to English" lang="en" title="Switch to English">EN</button>
 
-    <button class="theme-toggle" type="button" aria-label="切换深浅色模式">
+    <button class="theme-toggle" type="button" aria-label="切换深浅色模式" data-i18n-aria-label="theme.label">
       <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
     </button>
@@ -40,11 +41,12 @@
     </header><main>
     <section id="thoughts" class="shell section thoughts" aria-labelledby="thoughts-title">
       <div class="section-heading">
-        <h1 id="thoughts-title">随想</h1>
-        <p class="thoughts-intro">从朋友圈选一些文字，记录日常的思考。</p>
+        <h1 id="thoughts-title" data-i18n="thoughts.title">随想</h1>
+        <p class="thoughts-intro" data-i18n="thoughts.intro">从朋友圈选一些文字，记录日常的思考。</p>
+        <p class="thoughts-language-note" data-english-only data-i18n="thoughts.languageNote" hidden>随想保留中文原文。</p>
       </div>
       <div class="thought-list">
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20261006-45f0113c" open>
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -71,7 +73,7 @@
 14. 搭建全球范围内的车联网，车之间可以互相通信并知道对方的位置，尽可能采用成熟的全自动驾驶，或许会是一个解决运力分配和堵车问题的好的解法，当然，像国庆这种集中出行也还是会堵，但我们也许可以比较好地解大部分场景和大部分问题。btw，一个也许更有想象力的问题，什么时候汽车这种交通工具才能消失掉？</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20261002-7d534e2c">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -93,7 +95,7 @@ Today 这个，我觉得是连接了我的 context 之后，没有去重新开�
 我觉得本质上，人是不喜欢到新的应用、新的环境重新介绍自己的，这太累了。为什么就不能是：你来了，我就知道你的很多很多，就像认识很多年的老朋友，而不是新朋友。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260929-0201ff77">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -117,7 +119,7 @@ Cue 里面，我很认同让 Agent 拥有持续身份这件事。它可以有自
 ​以上为口述内容，由codex整理。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260927-4be61e04">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -136,7 +138,7 @@ Cue 里面，我很认同让 Agent 拥有持续身份这件事。它可以有自
 此外收到了脉脉送的中秋礼盒，咖啡杯，还有一只LABUBU！开心～</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260922-0e8a1930">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -155,7 +157,7 @@ GUI 也是一个很好的联想。按钮、菜单、表单，通过图形界面�
 准确说，不应该叫便宜，应该叫经济。把可靠性、延迟、出错和维护一起算进去，让足够好的能力能够被高频使用，才会带来普及。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260918-89e49c6d">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -171,7 +173,7 @@ GUI 也是一个很好的联想。按钮、菜单、表单，通过图形界面�
 我们一直在问：“怎样让 AI 更顺畅地完成任务？”沿着 Bret 的思路，还应该追问：这个工具，有没有让人更容易理解、尝试，并产生原本不会产生的想法？</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260915-1e206bc0">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -188,7 +190,7 @@ GUI 也是一个很好的联想。按钮、菜单、表单，通过图形界面�
 4.原则是为目标服务的；当维护原则本身开始压过目标，原则就变成了相。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260908-ba5f0f86">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -212,7 +214,7 @@ AI不仅知道“我喜欢AI”，还应该逐渐理解“我现在和谁一起�
 人的本质不是一组标签，人的context也不应该只是一段聊天记录。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260908-bc4adea5">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -232,7 +234,7 @@ AI不仅知道“我喜欢AI”，还应该逐渐理解“我现在和谁一起�
 对原则偏执，对事实谦逊。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260907-e3441f9f">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -249,7 +251,7 @@ AI不仅知道“我喜欢AI”，还应该逐渐理解“我现在和谁一起�
 context+goal+constraint+hypothesis+ask，很多时候问题问清楚了，答案已经出来一半了。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260823-848af7ee">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -273,7 +275,7 @@ context+goal+constraint+hypothesis+ask，很多时候问题问清楚了，答案
 某种意义上，下一阶段竞争的不只是模型有多聪明，而是谁能把无限context压缩成正确的memory、attention和action。</div>
         </details>
       </article>
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="note-20260706-d5cb9a01">
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -307,9 +309,9 @@ https://github.com/Diefeng-Hu/ai-product-playbook</div>
     <footer class="shell footer">
       <p class="footer-slogan" data-edit="footer.slogan">Bet on something, do it.</p>
       <div class="footer-row">
-        <p>© 胡耀文</p>
+        <p data-i18n="footer.copyright">© 胡耀文</p>
       </div>
     </footer><!-- prerender:end --></div>
-    <script type="module" src="/js/main.js?v=881b8b178b9f"></script>
+    <script type="module" src="/js/main.js?v=e5d0c27ce70d"></script>
   </body>
 </html>

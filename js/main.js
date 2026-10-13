@@ -3,6 +3,7 @@ import { initTheme } from "./components/theme.js";
 import { initThoughts } from "./components/thoughts.js";
 import { siteContent } from "./data.js";
 import { pageMarkup, legacyDestination } from "./pages.js";
+import { initLanguage } from "./i18n.js";
 
 export function renderPage() {
   document.documentElement.style.setProperty("--editor-accent", siteContent.style.accentColor);
@@ -16,6 +17,7 @@ export function renderPage() {
 function initPageInteractions() {
   const page = document.body.dataset.page || "experience";
   initTheme();
+  initLanguage();
   if (page === "experience") {
     initEmailCopy();
     initWechatCopy();

@@ -36,7 +36,7 @@ export function thoughtsSection(entries = thoughts) {
     const excerpt = escapeHtml(entry.content.trim().split(/\n/).find((line) => line.trim()) || "");
     const body = entry.content.replace(/\r\n?/g, "\n").split("\n").filter((line) => line.trim()).join("\n");
     return `
-      <article class="thought-item">
+      <article class="thought-item" lang="zh-CN">
         <details class="thought" id="${entry.id}"${index === 0 ? " open" : ""}>
           <summary class="thought-summary">
             <span class="thought-heading">
@@ -53,10 +53,11 @@ export function thoughtsSection(entries = thoughts) {
   return `
     <section id="thoughts" class="shell section thoughts" aria-labelledby="thoughts-title">
       <div class="section-heading">
-        <h1 id="thoughts-title">随想</h1>
-        <p class="thoughts-intro">从朋友圈选一些文字，记录日常的思考。</p>
+        <h1 id="thoughts-title" data-i18n="thoughts.title">随想</h1>
+        <p class="thoughts-intro" data-i18n="thoughts.intro">从朋友圈选一些文字，记录日常的思考。</p>
+        <p class="thoughts-language-note" data-english-only data-i18n="thoughts.languageNote" hidden>随想保留中文原文。</p>
       </div>
-      <div class="thought-list">${notes || '<p class="thoughts-intro">还没有发布的随想。</p>'}</div>
+      <div class="thought-list">${notes || '<p class="thoughts-intro" data-i18n="thoughts.empty">还没有发布的随想。</p>'}</div>
     </section>`;
 }
 

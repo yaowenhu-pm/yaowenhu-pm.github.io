@@ -11,6 +11,15 @@
   transition: color 140ms ease, background-color 140ms ease;
 }
 .theme-toggle:hover { color: var(--text); background: var(--fill); }
+.language-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 36px; min-height: 36px; padding: 0 6px; border: 1px solid var(--hairline); border-radius: 8px;
+  background: transparent; color: var(--muted); font: 600 12px var(--font); cursor: pointer;
+}
+.language-toggle:hover { color: var(--text); background: var(--fill); }
+.language-toggle:focus-visible, .theme-toggle:focus-visible, .social-icon:focus-visible, .pill:focus-visible {
+  outline: 2px solid var(--text); outline-offset: 4px;
+}
 .icon-sun { display: none; }
 :root[data-theme="dark"] .icon-moon { display: none; }
 :root[data-theme="dark"] .icon-sun { display: block; }
@@ -24,6 +33,25 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .hero-summary + .hero-summary { margin-top: 4px; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 28px; }
+.hero-socials { position: relative; gap: 10px; margin-top: 22px; }
+.social-icon {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; padding: 9px; border: 1px solid var(--hairline); border-radius: 12px;
+  color: var(--muted); background: transparent; cursor: pointer; list-style: none;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+.social-icon svg { width: 22px; height: 22px; flex-shrink: 0; }
+.social-icon:hover, .contact-dropdown[open] .social-icon { color: var(--text); background: var(--fill); }
+.social-icon::-webkit-details-marker { display: none; }
+.social-tooltip {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  padding: 3px 8px; border-radius: 6px; background: var(--invert-bg); color: var(--invert-text);
+  font-size: 12px; white-space: nowrap; pointer-events: none; visibility: hidden; opacity: 0;
+}
+.social-icon:focus-visible .social-tooltip { visibility: visible; opacity: 1; }
+@media (hover: hover) { .social-icon:hover .social-tooltip { visibility: visible; opacity: 1; } }
+.hero-socials .contact-dropdown { position: static; }
+.contact-dropdown[open] .social-tooltip { visibility: hidden; }
 .pill {
   display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
   border: none; border-radius: 999px; cursor: pointer;
@@ -82,6 +110,7 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .education-school { color: var(--text); font-weight: 600; }
 
 .thoughts-intro { color: var(--muted); font-size: 14px; }
+.thoughts-language-note { margin-top: 6px; color: var(--light); font-size: 12px; }
 .thought-list { margin-top: 18px; }
 .thought-item { border-bottom: 1px solid var(--hairline); }
 .thought-item:last-child { border-bottom: none; }

@@ -1,6 +1,10 @@
 @media (max-width: 620px) {
   .nav { gap: 12px; }
   .nav-links { gap: 16px; font-size: 13px; }
+  .nav-tools { gap: 6px; }
+  :root[data-language="en"] .nav { flex-wrap: wrap; padding: 10px 0; row-gap: 8px; }
+  :root[data-language="en"] .nav-links { order: 3; width: 100%; }
+  :root[data-language="en"] .nav-tools { margin-left: auto; }
   .hero { flex-direction: column-reverse; gap: 24px; padding-top: 36px; }
   .hero-photo { width: 132px; }
   .section { padding-top: 48px; }
@@ -15,4 +19,10 @@
   .thought-heading .thought-chevron { grid-column: 2; grid-row: 1; }
   .thought-summary { padding: 20px 0; }
   .thought-body { font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  .nav { flex-wrap: wrap; padding: 8px 0; row-gap: 8px; }
+  .nav-links { order: 3; width: 100%; }
+  .nav-tools { margin-left: auto; }
 }
