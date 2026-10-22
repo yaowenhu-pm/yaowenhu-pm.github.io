@@ -82,7 +82,7 @@ export const siteContent = {
   ],
   "education": {
     "school": "电子科技大学",
-    "degree": "行政管理 · 本科 · GPA 3.73/4.0 · 2023.09 — 2027.07"
+    "degree": "行政管理 · 本科 · 2023.09 — 2027.07"
   },
   "footer": {
     "slogan": "Bet on something, do it."
@@ -147,8 +147,8 @@ export const englishContent = {
     "translation": "University of Electronic Science and Technology of China"
   },
   "education.degree": {
-    "source": "行政管理 · 本科 · GPA 3.73/4.0 · 2023.09 — 2027.07",
-    "translation": "Public Administration · Undergraduate · GPA 3.73/4.0 · Sep 2023 – Jul 2027"
+    "source": "行政管理 · 本科 · 2023.09 — 2027.07",
+    "translation": "Public Administration · Undergraduate · Sep 2023 – Jul 2027"
   },
   "experience.title": "Internships",
   "experiences.0.company": {
