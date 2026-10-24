@@ -1,4 +1,5 @@
 import { englishContent } from "./data.js";
+import { applyThoughtsLanguage } from "./components/thoughts.js";
 
 const originals = new WeakMap();
 const storageKey = "site-language";
@@ -39,6 +40,7 @@ export function applyLanguage(next) {
     if (node.dataset.i18nAlt) node.setAttribute("alt", text(node.dataset.i18nAlt, original.alt));
   }
   for (const node of document.querySelectorAll("[data-english-only]")) node.hidden = language !== "en";
+  applyThoughtsLanguage(language);
   for (const link of document.querySelectorAll("a[data-page-link]")) {
     const url = new URL(link.getAttribute("href"), window.location.href);
     if (language === "en") url.searchParams.set("lang", "en");

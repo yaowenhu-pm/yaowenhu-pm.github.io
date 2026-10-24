@@ -29,7 +29,7 @@ export function validateThoughts(entries) {
   return entries;
 }
 
-export function thoughtsSection(entries = thoughts) {
+export function thoughtsSection(entries = thoughts, translations = {}) {
   const sorted = [...validateThoughts(entries)].sort((a, b) => b.date.localeCompare(a.date));
   const notes = sorted.map((entry, index) => {
     const title = escapeHtml(entry.title);
@@ -55,10 +55,31 @@ export function thoughtsSection(entries = thoughts) {
       <div class="section-heading">
         <h1 id="thoughts-title" data-i18n="thoughts.title">随想</h1>
         <p class="thoughts-intro" data-i18n="thoughts.intro">从朋友圈选一些文字，记录日常的思考。</p>
-        <p class="thoughts-language-note" data-english-only data-i18n="thoughts.languageNote" hidden>随想保留中文原文。</p>
+        <p class="thoughts-language-note" data-english-only data-i18n="thoughts.languageNote" hidden>英文由中文原文翻译。</p>
       </div>
       <div class="thought-list">${notes || '<p class="thoughts-intro" data-i18n="thoughts.empty">还没有发布的随想。</p>'}</div>
+      <template id="thoughts-english-data">${JSON.stringify(translations).replace(/[<>&]/g, (character) => ({ "<": "\\u003c", ">": "\\u003e", "&": "\\u0026" })[character])}</template>
     </section>`;
+}
+
+const originalNotes = new WeakMap();
+
+export function applyThoughtsLanguage(language) {
+  for (const section of document.querySelectorAll("section.thoughts")) {
+    const cache = section.querySelector("#thoughts-english-data");
+    const translations = cache ? JSON.parse(cache.content.textContent) : {};
+    for (const article of section.querySelectorAll(".thought-item")) {
+      const details = article.querySelector("details");
+      const nodes = [".thought-title", ".thought-excerpt", ".thought-body"].map((selector) => article.querySelector(selector));
+      if (!originalNotes.has(article)) originalNotes.set(article, nodes.map((node) => node.textContent));
+      const translation = translations[details.id];
+      const original = originalNotes.get(article);
+      const english = language === "en" && translation;
+      const text = english ? [translation.title, translation.content.trim().split(/\n/).find((line) => line.trim()) || "", translation.content.replace(/\r\n?/g, "\n").split("\n").filter((line) => line.trim()).join("\n")] : original;
+      nodes.forEach((node, index) => { node.textContent = text[index]; });
+      article.lang = english ? "en" : "zh-CN";
+    }
+  }
 }
 
 export function initThoughts() {
