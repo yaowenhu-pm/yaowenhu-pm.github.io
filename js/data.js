@@ -256,7 +256,7 @@ export const englishContent = {
   "thoughts.title": "Thoughts",
   "thoughts.intro": "Selected notes from my WeChat Moments, reflecting on everyday life.",
   "thoughts.empty": "No notes published yet.",
-  "thoughts.languageNote": "Notes are published in their original Chinese.",
+  "thoughts.languageNote": "Translated from the original Chinese.",
   "footer.copyright": "© Yaowen Hu",
   "pages.experience.title": "Experience · Yaowen Hu",
   "pages.experience.description": "Yaowen Hu's introduction, education, and internship experience.",

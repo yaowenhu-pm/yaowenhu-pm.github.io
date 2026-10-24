@@ -93,13 +93,15 @@ test("public Thoughts startup binds interactions without replacing published HTM
 });
 
 test("build versions dependencies and preserves the Thoughts-only publishing boundary", async () => {
+  const savedFetch = globalThis.fetch;
+  globalThis.fetch = async () => ({ ok: true, json: async () => ({ responseStatus: 200, responseData: { translatedText: "An English note" } }) });
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
   const prefix = join(tmpdir(), "thoughts-build-");
   const fixture = mkdtempSync(prefix);
   try {
     const components = ["education", "elsewhere", "experience", "footer", "header", "hero", "projects", "theme", "thoughts"];
     const styles = ["main", "tokens", "base", "layout", "components", "responsive", "editor"];
-    const files = ["build.js", "index.html", "js/main.js", "js/i18n.js", "js/editor.js", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`), ...styles.map((name) => `styles/${name}.css`)];
+    const files = ["build.js", "scripts/thought-translations.mjs", "index.html", "js/main.js", "js/i18n.js", "js/editor.js", "js/pages.js", "js/data.js", "js/thoughts-data.js", ...components.map((name) => `js/components/${name}.js`), ...styles.map((name) => `styles/${name}.css`)];
     for (const path of files) {
       mkdirSync(dirname(join(fixture, path)), { recursive: true });
       writeFileSync(join(fixture, path), readFileSync(join(root, path)));
@@ -141,6 +143,15 @@ test("build versions dependencies and preserves the Thoughts-only publishing bou
     const outsideApp = (html) => html.replace(/<!-- prerender:start -->[\s\S]*?<!-- prerender:end -->/, "");
     assert.equal(outsideApp(updated), outsideApp(first));
     assert.ok(updated.includes('id="note-newest" open'));
+    // A failed translation must leave ALL previously generated pages intact.
+    thoughts.unshift({ ...note, id: "note-untranslated", date: "2026-09-25" });
+    writeFileSync(join(fixture, "js/thoughts-data.js"), `export const thoughts = ${JSON.stringify(thoughts)};\n`);
+    const beforeFailure = Object.fromEntries(Object.entries(pages).map(([page, config]) => [page, readFileSync(join(fixture, config.file), "utf8")]));
+    globalThis.fetch = async () => { throw new Error("translation service offline"); };
+    await assert.rejects(import(`${pathToFileURL(join(fixture, "build.js")).href}?offline`), /自动翻译失败/);
+    for (const [page, config] of Object.entries(pages)) assert.equal(readFileSync(join(fixture, config.file), "utf8"), beforeFailure[page]);
+    thoughts.shift();
+    writeFileSync(join(fixture, "js/thoughts-data.js"), `export const thoughts = ${JSON.stringify(thoughts)};\n`);
     // Changing only a child dependency must still give that asset a new URL.
     for (const path of ["js/components/thoughts.js", "styles/components.css"]) {
       writeFileSync(join(fixture, path), `${readFileSync(join(fixture, path), "utf8")}\n/* cache regression */\n`);
@@ -152,6 +163,7 @@ test("build versions dependencies and preserves the Thoughts-only publishing bou
     const componentCss = (html) => html.match(/href="(\/styles\/components\.css\?v=[a-f0-9]{12})"/)[1];
     assert.notEqual(componentCss(versioned), componentCss(first));
   } finally {
+    globalThis.fetch = savedFetch;
     assert.ok(resolve(fixture).startsWith(resolve(prefix)));
     rmSync(fixture, { recursive: true, force: true });
   }

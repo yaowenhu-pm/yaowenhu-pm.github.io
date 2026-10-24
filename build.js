@@ -1,14 +1,24 @@
 // 生成三个独立页面；#app 中的正文由 js/pages.js 与浏览器共用。
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { pages, pageMarkup } from "./js/pages.js";
 import { siteContent } from "./js/data.js";
+import { thoughts } from "./js/thoughts-data.js";
+import { validateThoughts } from "./js/components/thoughts.js";
+import { embeddedTranslations, ensureTranslations } from "./scripts/thought-translations.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const template = readFileSync(join(root, "index.html"), "utf8");
+const thoughtsPath = join(root, "thoughts/index.html");
+const translationsFile = process.argv.find((argument) => argument.startsWith("--translations="))?.slice("--translations=".length);
+const previousTranslations = existsSync(thoughtsPath) ? embeddedTranslations(readFileSync(thoughtsPath, "utf8")) : {};
+const suppliedTranslations = translationsFile ? JSON.parse(readFileSync(translationsFile, "utf8")) : {};
+// Complete every translation before writing any output. Run this build before
+// publishing a sync; cached translations stay inside the two-file boundary.
+const thoughtTranslations = await ensureTranslations(validateThoughts(thoughts), { ...previousTranslations, ...suppliedTranslations });
 const appPattern = /<div id="app"[^>]*>[\s\S]*?<\/div>\s*(?=<script)/;
 if (!appPattern.test(template)) throw new Error("index.html 里没找到 #app 挂载点");
 const { accentColor, cardRadius, sectionSpace } = siteContent.style;
@@ -44,7 +54,7 @@ const assetPattern = /<!-- assets:start -->[\s\S]*?<!-- assets:end -->|<link rel
 if (!assetPattern.test(template)) throw new Error("index.html 里没找到资源区块");
 
 for (const [page, config] of Object.entries(pages)) {
-  const markup = pageMarkup(page).split("\n").map((line) => line.trimEnd()).join("\n");
+  const markup = pageMarkup(page, thoughtTranslations).split("\n").map((line) => line.trimEnd()).join("\n");
   const app = `<div id="app" style="${styleVars}"><!-- prerender:start -->${markup}<!-- prerender:end --></div>`;
   const html = template
     .replace(appPattern, () => `${app}\n    `)

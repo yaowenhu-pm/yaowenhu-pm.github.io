@@ -13,10 +13,10 @@ export const pages = {
   thoughts: { path: "/thoughts/", file: "thoughts/index.html", title: "随想 · 胡耀文", description: "从朋友圈选一些文字，记录胡耀文日常的思考。" }
 };
 
-export function pageMarkup(page) {
+export function pageMarkup(page, thoughtTranslations = {}) {
   if (!Object.hasOwn(pages, page)) throw new Error("未知页面");
   const content = page === "experience" ? `${hero()}${education()}${experience()}`
-    : page === "work" ? `${projectsSection()}${elsewhere()}` : thoughtsSection();
+    : page === "work" ? `${projectsSection()}${elsewhere()}` : thoughtsSection(undefined, thoughtTranslations);
   return `${header(page)}<main>${content}</main>${footer()}`;
 }
 

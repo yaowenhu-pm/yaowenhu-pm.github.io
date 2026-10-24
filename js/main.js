@@ -10,7 +10,9 @@ export function renderPage() {
   document.documentElement.style.setProperty("--editor-card-radius", `${siteContent.style.cardRadius}px`);
   document.documentElement.style.setProperty("--editor-section-space", `${siteContent.style.sectionSpace}px`);
   const page = document.body.dataset.page || "experience";
-  document.querySelector("#app").innerHTML = pageMarkup(page);
+  const translationCache = document.querySelector("#thoughts-english-data");
+  const translations = translationCache ? JSON.parse(translationCache.content.textContent) : {};
+  document.querySelector("#app").innerHTML = pageMarkup(page, translations);
   initPageInteractions();
 }
 

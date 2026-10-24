@@ -22,7 +22,8 @@
 |---|---|
 | `index.html` | 文档骨架、防闪主题脚本、模块入口；`#app` 内是 `build.js` 生成的预渲染正文，不要手改 |
 | `work/index.html`、`thoughts/index.html` | 根据首页文档骨架生成的独立页面，不要手改 |
-| `build.js` | 预渲染脚本（零依赖 Node），改完内容后跑 `node build.js` 重新生成 |
+| `build.js` | 预渲染脚本（零依赖 Node 18+），同步时自动补齐英文，再生成页面 |
+| `scripts/thought-translations.mjs` | 增量翻译、原文指纹、英文完整性与链接/段落校验 |
 | `js/pages.js` | 三页配置与共享渲染逻辑，以及旧链接迁移规则 |
 | `js/data.js` | 个人资料与作品内容，并统一导出随想数据 |
 | `js/thoughts-data.js` | 精选随想数据，由 `js/data.js` 统一导出；独立于个人资料编辑器，避免相互覆盖 |
@@ -69,8 +70,12 @@ git diff --check
 
 - 个人资料改动在 `js/data.js`，随想在 `js/thoughts-data.js`，样式改动遵循 `tokens.css` 的变量体系。
 - “随想”每条仅有 `id`、原始发表日期 `date`、阅读标题 `title`、原文 `content`。按日期倒序，默认展开最新一篇，其余点击展开；全部正文也会预渲染，单条可用 `#note-…` 定位。展示时去掉段落间空行，保留正常换行及文字中的空格，源数据仍保留原文。
+- 英文页翻译每篇的标题、折叠摘要和完整正文；点击语言按钮时保留展开状态，切回中文仍显示原文。译文随预渲染 HTML 一起缓存，读者无需翻译插件，也不需要向翻译服务发请求。
+- 每次朋友圈同步应用筛选结果后、发布前，都必须运行 `node build.js`。构建从已有 `thoughts/index.html` 读取英文缓存，只翻译新增/原文修改的条目，重新生成摘要；删除条目不会保留旧译文。中文源数据仍只有四个公开字段，纯内容同步仍只提交原来的两个文件。
+- 自动翻译使用 [MyMemory 的 HTTPS Get 接口](https://mymemory.translated.net/doc/spec.php)，只发送已经筛选可公开的标题和正文，按 UTF-8 字节上限拆段，保留原链接和段落。无需密钥或依赖；匿名接口目前限 [每日 5,000 字符](https://mymemory.translated.net/doc/usagelimits.php)。已有缓存的普通构建不访问服务。网络错误、额度用尽、中文残留、缺段或链接改变时，构建报错，任何页面都不写入，不得继续发布。
+- 需要核对或改进译文时，可提供本机 JSON：`node build.js --translations=/absolute/path/reviewed.json`。结构为 `{ "note-…": { "sourceHash": "…", "title": "English title", "content": "Full English text" } }`；指纹由 `scripts/thought-translations.mjs` 的 `sourceHash(note)` 生成。构建仍执行完整校验，并把结果写回随想 HTML；JSON、私有资料和运行日志不要提交。
 - 同步程序和源资料留在本机私有目录。这里只接收经过筛选的公开文字，不保存账号标识、数据库、朋友圈原始记录、互动、图片或同步日志。新增与正文修订都需重新筛选；读取失败不能发布旧快照。
-- 新随想发布需同时提交 `js/thoughts-data.js` 与 `node build.js` 生成的 `thoughts/index.html`。仅更新随想时，首页和作品页的生成结果不变。内置 `node --test tests/thoughts.test.mjs` 检查文本转义、公开字段、三页内容隔离、旧链接和预渲染；不需要安装依赖。
+- 新随想发布需同时提交 `js/thoughts-data.js` 与 `node build.js` 生成的 `thoughts/index.html`。仅更新随想时，首页和作品页的生成结果不变。内置 `node --test tests/*.test.mjs` 检查文本转义、公开字段、三页隔离、旧链接、预渲染、增量翻译、缓存失效、失败时保留旧页面以及中英切换；不需要安装依赖。
 - 内容或组件改完必须跑 `node build.js`，使浏览器和爬虫读到更新后的正文与资源版本。资源版本不包含随想数据，纯随想同步仍只改随想数据文件与该页预渲染区块。
 - 简历 PDF 与实际投递版本保持一致。
 - 每次更新后检查本 README 是否需要同步。
