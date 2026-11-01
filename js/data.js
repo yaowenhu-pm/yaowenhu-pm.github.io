@@ -56,6 +56,11 @@ export const siteContent = {
     "title": "Agent Skills 合集",
     "description": "个人 Agent Skills 集合，Claude Code 即装即用。",
     "url": "https://github.com/yaowenhu-pm/yaowenhu-skills"
+  },
+  {
+    "title": "TeamLink",
+    "description": "多人共创工具：通过对话、手绘和拖动，共同修改同一片风景。",
+    "url": "https://teamlink.yaowenhu.cn/"
   }
   ],
   "elsewhere": [
@@ -223,6 +228,10 @@ export const englishContent = {
   "projects.1.description": {
     "source": "个人 Agent Skills 集合，Claude Code 即装即用。",
     "translation": "A collection of personal agent skills, ready to install in Claude Code."
+  },
+  "projects.2.description": {
+    "source": "多人共创工具：通过对话、手绘和拖动，共同修改同一片风景。",
+    "translation": "A shared creative canvas: edit one landscape together through chat, drawing, and dragging."
   },
   "elsewhere.title": "Find me elsewhere",
   "elsewhere.0.description": {
