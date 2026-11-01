@@ -50,7 +50,7 @@ export const siteContent = {
   {
     "title": "AI Product Playbook",
     "description": "AI 产品经理的实践手册：产品判断、Prompt、Skill、Agent 和 AI 工作流沉淀。",
-    "url": "https://github.com/yaowenhu-pm/ai-product-playbook"
+    "url": "https://yaowenhu.cn/ai-product-playbook/"
   },
   {
     "title": "Agent Skills 合集",
