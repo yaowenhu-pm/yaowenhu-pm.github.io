@@ -71,40 +71,79 @@ async function copyAddress(address) {
   try { return document.execCommand("copy"); } catch { return false; }
 }
 
-export function initEmailCopy() {
-  const button = document.querySelector("#copy-email");
-  const address = document.querySelector("#contact-email");
-  const status = document.querySelector("#email-status");
-  if (!button || !address || !status) return;
+let contactListeners;
 
-  button.addEventListener("click", async () => {
-    const copied = await copyAddress(address);
-    status.textContent = copied
-      ? text("contact.emailCopied", "邮箱已复制，可在常用邮箱中粘贴收件人。")
-      : text("contact.emailFallback", "请长按或按 Ctrl/Cmd+C 复制已选中的邮箱。");
-  });
-}
-
-export function initWechatCopy() {
-  const button = document.querySelector("#copy-wechat");
-  const address = document.querySelector("#contact-wechat");
-  const status = document.querySelector("#wechat-status");
-  if (!button || !address || !status) return;
-  button.addEventListener("click", async () => {
-    const copied = await copyAddress(address);
-    status.textContent = copied ? text("contact.wechatCopied", "微信号已复制。")
-      : text("contact.wechatFallback", "请长按或按 Ctrl/Cmd+C 复制已选中的微信号。");
-  });
-  const panels = document.querySelectorAll(".contact-dropdown");
-  for (const panel of panels) {
-    panel.addEventListener("toggle", () => {
-      if (panel.open) for (const other of panels) if (other !== panel) other.open = false;
-    });
-    panel.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        panel.open = false;
-        panel.querySelector("summary").focus();
-      }
-    });
+export function initContactDropdowns() {
+  // The editor can render the page again; remove listeners for the previous DOM.
+  contactListeners?.abort();
+  contactListeners = new AbortController();
+  const { signal } = contactListeners;
+  const panels = [...document.querySelectorAll(".contact-dropdown")];
+  const messages = {
+    email: { Hint: "可复制邮箱，在常用邮箱中写信。", Copied: "邮箱已复制，可在常用邮箱中粘贴收件人。", Fallback: "请长按或按 Ctrl/Cmd+C 复制已选中的邮箱。" },
+    wechat: { Hint: "可通过这个微信号找到我。", Copied: "微信号已复制。", Fallback: "请长按或按 Ctrl/Cmd+C 复制已选中的微信号。" }
+  };
+  function positionPanel(panel) {
+    if (!panel.open) return;
+    const content = panel.querySelector(".email-panel");
+    const anchor = panel.parentElement.getBoundingClientRect();
+    const viewportTop = window.visualViewport?.offsetTop || 0;
+    const viewportBottom = viewportTop + (window.visualViewport?.height || window.innerHeight);
+    const above = Math.max(0, anchor.top - viewportTop - 22);
+    const below = Math.max(0, viewportBottom - anchor.bottom - 22);
+    if (anchor.bottom < viewportTop || anchor.top > viewportBottom) {
+      panel.open = false;
+      return;
+    }
+    content.style.maxHeight = "";
+    const height = content.getBoundingClientRect().height;
+    const openAbove = below < height && above > below;
+    panel.dataset.placement = openAbove ? "above" : "below";
+    content.style.maxHeight = `${openAbove ? above : below}px`;
   }
+  for (const panel of panels) {
+    const kind = panel.classList.contains("email-contact") ? "email" : "wechat";
+    const address = panel.querySelector("input");
+    const status = panel.querySelector('[role="status"]');
+    let copyRequest = 0;
+    function showStatus(state) {
+      const key = `contact.${kind}${state}`;
+      status.dataset.i18n = key;
+      status.textContent = text(key, messages[kind][state]);
+    }
+    panel.addEventListener("toggle", () => {
+      copyRequest += 1;
+      if (panel.open) {
+        for (const other of panels) if (other !== panel) other.open = false;
+        showStatus("Hint");
+        positionPanel(panel);
+      }
+    }, { signal });
+    panel.querySelector("button").addEventListener("click", async () => {
+      const request = ++copyRequest;
+      const copied = await copyAddress(address);
+      if (request === copyRequest && panel.open) showStatus(copied ? "Copied" : "Fallback");
+    }, { signal });
+  }
+
+  function closeOutside(event) {
+    for (const panel of panels) if (!panel.contains(event.target)) panel.open = false;
+  }
+  function closeAll() {
+    for (const panel of panels) panel.open = false;
+  }
+  document.addEventListener("click", closeOutside, { signal });
+  document.addEventListener("focusin", closeOutside, { signal });
+  document.addEventListener("keydown", (event) => {
+    const panel = panels.find((item) => item.open);
+    if (event.key !== "Escape" || !panel) return;
+    event.preventDefault();
+    panel.open = false;
+    panel.querySelector("summary").focus({ preventScroll: true });
+  }, { signal });
+  window.addEventListener("blur", closeAll, { signal });
+  const positionOpenPanels = () => panels.forEach(positionPanel);
+  window.addEventListener("resize", positionOpenPanels, { signal, passive: true });
+  window.addEventListener("scroll", positionOpenPanels, { signal, passive: true });
+  window.visualViewport?.addEventListener("resize", positionOpenPanels, { signal, passive: true });
 }

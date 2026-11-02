@@ -1,4 +1,4 @@
-import { initEmailCopy, initWechatCopy } from "./components/hero.js";
+import { initContactDropdowns } from "./components/hero.js";
 import { initTheme } from "./components/theme.js";
 import { initThoughts } from "./components/thoughts.js";
 import { siteContent } from "./data.js";
@@ -21,8 +21,7 @@ function initPageInteractions() {
   initTheme();
   initLanguage();
   if (page === "experience") {
-    initEmailCopy();
-    initWechatCopy();
+    initContactDropdowns();
   }
   if (page === "thoughts") initThoughts();
 }

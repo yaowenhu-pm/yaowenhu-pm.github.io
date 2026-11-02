@@ -69,14 +69,16 @@ h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.015
 .email-panel {
   position: absolute; top: calc(100% + 10px); left: 0; z-index: 5;
   width: min(320px, calc(100vw - 44px)); padding: 18px;
+  overflow-y: auto; overscroll-behavior: contain;
   border: 1px solid var(--hairline); border-radius: var(--radius);
   background: var(--bg); color: var(--text);
 }
+.contact-dropdown[data-placement="above"] .email-panel { top: auto; bottom: calc(100% + 10px); }
 .email-panel label { display: block; color: var(--muted); font-size: 13px; }
 .email-panel input {
   width: 100%; min-width: 0; margin: 6px 0 14px; padding: 8px 10px;
   border: 1px solid var(--hairline); border-radius: 6px;
-  background: var(--fill); color: var(--text); font: inherit; font-size: 15px;
+  background: var(--fill); color: var(--text); font: inherit; font-size: 16px;
 }
 .email-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; font-size: 14px; }
 .email-actions a { text-decoration: underline; text-underline-offset: 3px; }

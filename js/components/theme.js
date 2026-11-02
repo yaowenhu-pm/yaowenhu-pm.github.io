@@ -9,12 +9,14 @@ export function themeToggle() {
 }
 
 export function initTheme() {
-  applyTheme(localStorage.getItem(storageKey));
+  let savedTheme;
+  try { savedTheme = localStorage.getItem(storageKey); } catch { /* Use the system theme when storage is unavailable. */ }
+  applyTheme(savedTheme);
   document.querySelector(".theme-toggle").addEventListener("click", () => {
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const current = document.documentElement.dataset.theme || (systemDark ? "dark" : "light");
     const next = current === "dark" ? "light" : "dark";
-    localStorage.setItem(storageKey, next);
+    try { localStorage.setItem(storageKey, next); } catch { /* Switching still works for this page. */ }
     applyTheme(next);
   });
 }
