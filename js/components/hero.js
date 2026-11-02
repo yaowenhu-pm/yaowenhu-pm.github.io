@@ -24,7 +24,6 @@ export function hero() {
       <div class="hero-copy">
         <h1 id="hero-title" data-edit="hero.greeting" data-i18n="hero.greeting">${content.greeting}</h1>
         <p class="hero-summary" data-edit="hero.summary" data-i18n="hero.summary">${content.summary}</p>
-        <p class="hero-summary" data-edit="hero.introduction" data-i18n="hero.introduction">${content.introduction || "把产品判断与 AI 实践，整理成手册、Skills 和工具。"}</p>
         <p class="hero-summary" data-edit="hero.belief" data-i18n="hero.belief">${content.belief}</p>
         <div class="hero-actions hero-socials" role="group" aria-label="在别处找我" data-i18n-aria-label="social.label">
           ${socialLink("github", siteContent.elsewhere.find((item) => item.url?.includes("github.com")))}

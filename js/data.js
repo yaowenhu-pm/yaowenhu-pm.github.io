@@ -3,7 +3,6 @@ export const siteContent = {
     "name": "胡耀文",
     "greeting": "你好，我是胡耀文",
     "summary": "AI PM，做面向用户的产品。",
-    "introduction": "把产品判断与 AI 实践，整理成手册、Skills 和工具。",
     "belief": "相信产品的价值最终由多少人真的在用来决定。",
     "email": "yaowen_hu@foxmail.com",
     "wechat": "h17345250018",
@@ -120,10 +119,6 @@ export const englishContent = {
   "hero.summary": {
     "source": "AI PM，做面向用户的产品。",
     "translation": "AI product manager, building products for people."
-  },
-  "hero.introduction": {
-    "source": "把产品判断与 AI 实践，整理成手册、Skills 和工具。",
-    "translation": "Turning product judgment and AI practice into playbooks, skills, and tools."
   },
   "hero.belief": {
     "source": "相信产品的价值最终由多少人真的在用来决定。",
