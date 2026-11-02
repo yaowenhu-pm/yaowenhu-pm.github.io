@@ -13,35 +13,35 @@ export const siteContent = {
   {
     "date": "2026.06.25 — 2026.08.25",
     "company": "潜入梦科技（infiDive）",
-    "role": "AI 产品实习生",
+    "role": "AI 产品实习",
     "summary": "面向海外市场的 AI 角色养成 C 端产品，负责成长与经济数值体系：关系与虚拟货币双轨，升级曲线由留存窗口反推，而不是直接拍数值。",
     "points": []
   },
   {
     "date": "2026.06.01 — 2026.06.24",
     "company": "快手 · 商业化事业部",
-    "role": "AI 产品实习生",
+    "role": "AI 产品实习",
     "summary": "短剧内容治理场景下的多模态 AI 标注平台建设，负责视频风险定位能力：把审核动作从“通读找错”收敛为“定点核对”。",
     "points": []
   },
   {
     "date": "2026.03 — 2026.05",
     "company": "百度 · 健康业务部",
-    "role": "AI 产品实习生",
+    "role": "AI 产品实习",
     "summary": "负责 AI 医院后台的产品规划：把 AI 分导诊、AI 加号等核心能力做成医院可自主配置的形态，用一套产品承接不同医院的差异。",
     "points": []
   },
   {
     "date": "2025.11 — 2026.03",
     "company": "好未来 · 平台产品部",
-    "role": "AI 产品实习生",
+    "role": "AI 产品实习",
     "summary": "学而思亲子 APP 家长社区从 0 到 1：覆盖发帖、审核、推荐、搜索等核心模块，用分阶段供给策略解决冷启动。",
     "points": []
   },
   {
     "date": "2025.07 — 2025.11",
     "company": "龙猫数据 · 大客户部",
-    "role": "数据产品实习生",
+    "role": "数据产品实习",
     "summary": "面向头部大模型客户交付多模态数据集，通过流程优化压缩单项目交付周期。",
     "points": []
   }
@@ -161,7 +161,7 @@ export const englishContent = {
     "translation": "infiDive"
   },
   "experiences.0.role": {
-    "source": "AI 产品实习生",
+    "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.0.summary": {
@@ -173,7 +173,7 @@ export const englishContent = {
     "translation": "Kuaishou · Commercialization"
   },
   "experiences.1.role": {
-    "source": "AI 产品实习生",
+    "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.1.summary": {
@@ -185,7 +185,7 @@ export const englishContent = {
     "translation": "Baidu · Healthcare"
   },
   "experiences.2.role": {
-    "source": "AI 产品实习生",
+    "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.2.summary": {
@@ -197,7 +197,7 @@ export const englishContent = {
     "translation": "TAL Education · Platform Products"
   },
   "experiences.3.role": {
-    "source": "AI 产品实习生",
+    "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.3.summary": {
@@ -209,7 +209,7 @@ export const englishContent = {
     "translation": "Longmao Data · Key Accounts"
   },
   "experiences.4.role": {
-    "source": "数据产品实习生",
+    "source": "数据产品实习",
     "translation": "Data Product Intern"
   },
   "experiences.4.summary": {
