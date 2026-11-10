@@ -10,6 +10,13 @@ export const siteContent = {
   },
   "experiences": [
   {
+    "date": "2026.09 — 至今",
+    "company": "成都通约科技",
+    "role": "Co-founder & 产品负责人",
+    "summary": "",
+    "points": []
+  },
+  {
     "date": "2026.06.25 — 2026.08.25",
     "company": "潜入梦科技（infiDive）",
     "role": "AI 产品实习",
@@ -150,64 +157,76 @@ export const englishContent = {
     "source": "行政管理 · 本科 · 2023.09 — 2027.07",
     "translation": "Public Administration · Undergraduate · Sep 2023 – Jul 2027"
   },
-  "experience.title": "Internships",
+  "experience.title": "Work Experience",
+  "experiences.0.date": {
+    "source": "2026.09 — 至今",
+    "translation": "Sep 2026 — Present"
+  },
   "experiences.0.company": {
-    "source": "潜入梦科技（infiDive）",
-    "translation": "infiDive"
+    "source": "成都通约科技",
+    "translation": "Chengdu Tongyue Technology"
   },
   "experiences.0.role": {
-    "source": "AI 产品实习",
-    "translation": "AI Product Intern"
-  },
-  "experiences.0.summary": {
-    "source": "面向海外市场的 AI 角色养成 C 端产品，负责成长与经济数值体系：关系与虚拟货币双轨，升级曲线由留存窗口反推，而不是直接拍数值。",
-    "translation": "Designed progression and economy systems for an AI companion product serving overseas users. Used separate relationship and currency tracks, with progression curves informed by retention windows."
+    "source": "Co-founder & 产品负责人",
+    "translation": "Co-founder & Head of Product"
   },
   "experiences.1.company": {
-    "source": "快手 · 商业化事业部",
-    "translation": "Kuaishou · Commercialization"
+    "source": "潜入梦科技（infiDive）",
+    "translation": "infiDive"
   },
   "experiences.1.role": {
     "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.1.summary": {
-    "source": "短剧内容治理场景下的多模态 AI 标注平台建设，负责视频风险定位能力：把审核动作从“通读找错”收敛为“定点核对”。",
-    "translation": "Worked on a multimodal AI annotation platform for short-drama moderation. Designed video risk localization to help reviewers verify flagged moments instead of searching entire videos."
+    "source": "面向海外市场的 AI 角色养成 C 端产品，负责成长与经济数值体系：关系与虚拟货币双轨，升级曲线由留存窗口反推，而不是直接拍数值。",
+    "translation": "Designed progression and economy systems for an AI companion product serving overseas users. Used separate relationship and currency tracks, with progression curves informed by retention windows."
   },
   "experiences.2.company": {
-    "source": "百度 · 健康业务部",
-    "translation": "Baidu · Healthcare"
+    "source": "快手 · 商业化事业部",
+    "translation": "Kuaishou · Commercialization"
   },
   "experiences.2.role": {
     "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.2.summary": {
-    "source": "负责 AI 医院后台的产品规划：把 AI 分导诊、AI 加号等核心能力做成医院可自主配置的形态，用一套产品承接不同医院的差异。",
-    "translation": "Planned an AI hospital administration platform, making AI triage and additional appointment slots configurable so one product could support different hospitals."
+    "source": "短剧内容治理场景下的多模态 AI 标注平台建设，负责视频风险定位能力：把审核动作从“通读找错”收敛为“定点核对”。",
+    "translation": "Worked on a multimodal AI annotation platform for short-drama moderation. Designed video risk localization to help reviewers verify flagged moments instead of searching entire videos."
   },
   "experiences.3.company": {
-    "source": "好未来 · 平台产品部",
-    "translation": "TAL Education · Platform Products"
+    "source": "百度 · 健康业务部",
+    "translation": "Baidu · Healthcare"
   },
   "experiences.3.role": {
     "source": "AI 产品实习",
     "translation": "AI Product Intern"
   },
   "experiences.3.summary": {
+    "source": "负责 AI 医院后台的产品规划：把 AI 分导诊、AI 加号等核心能力做成医院可自主配置的形态，用一套产品承接不同医院的差异。",
+    "translation": "Planned an AI hospital administration platform, making AI triage and additional appointment slots configurable so one product could support different hospitals."
+  },
+  "experiences.4.company": {
+    "source": "好未来 · 平台产品部",
+    "translation": "TAL Education · Platform Products"
+  },
+  "experiences.4.role": {
+    "source": "AI 产品实习",
+    "translation": "AI Product Intern"
+  },
+  "experiences.4.summary": {
     "source": "学而思亲子 APP 家长社区从 0 到 1：覆盖发帖、审核、推荐、搜索等核心模块，用分阶段供给策略解决冷启动。",
     "translation": "Built a parent community for the Xueersi parenting app from zero to one, covering posting, moderation, recommendations, and search. Used a phased content supply strategy to address the cold start."
   },
-  "experiences.4.company": {
+  "experiences.5.company": {
     "source": "龙猫数据 · 大客户部",
     "translation": "Longmao Data · Key Accounts"
   },
-  "experiences.4.role": {
+  "experiences.5.role": {
     "source": "数据产品实习",
     "translation": "Data Product Intern"
   },
-  "experiences.4.summary": {
+  "experiences.5.summary": {
     "source": "面向头部大模型客户交付多模态数据集，通过流程优化压缩单项目交付周期。",
     "translation": "Delivered multimodal datasets for leading foundation-model clients and improved workflows to shorten project delivery cycles."
   },
@@ -263,7 +282,7 @@ export const englishContent = {
   "thoughts.languageNote": "Translated from the original Chinese.",
   "footer.copyright": "© Yaowen Hu",
   "pages.experience.title": "Experience · Yaowen Hu",
-  "pages.experience.description": "Yaowen Hu's introduction, education, and internship experience.",
+  "pages.experience.description": "Yaowen Hu's introduction, education, and work experience.",
   "pages.work.title": "Work · Yaowen Hu",
   "pages.work.description": "Projects by Yaowen Hu and places to find him online.",
   "pages.thoughts.title": "Thoughts · Yaowen Hu",
